@@ -535,3 +535,351 @@
   }
 }
 
+
+/* Traveller form CSS */
+.traveller-form-container {
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.tab:hover {
+  background-color: #f9fafb;
+}
+
+.activeTab {
+  color: #0078ff;
+  border-bottom: 2px solid #0078ff;
+}
+
+.tabContent {
+  padding: 1.5rem;
+}
+
+.tabDescription {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.travellerList {
+  margin-bottom: 1.5rem;
+}
+
+.travellerItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #f9fafb;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.travellerNumber {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.travellerName {
+  flex: 1;
+}
+
+.travellerActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton,
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.editButton {
+  color: #0078ff;
+  background-color: rgba(0, 120, 255, 0.1);
+}
+
+.deleteButton {
+  color: #f44336;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.formTitle {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.formRow {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.formInput,
+.formSelect {
+  padding: 0.625rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.formInput:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: #0078ff;
+  box-shadow: 0 0 0 1px #0078ff;
+}
+
+.saveButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.saveButton:hover {
+  background-color: #0066cc;
+}
+
+.contactForm {
+  margin-top: 1rem;
+}
+
+
+/* Boarding details css */
+.boarding-details-container {
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  background-color: #f0f7ff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.classInfo {
+  font-size: 0.75rem;
+  color: #0078ff;
+}
+
+.stationInfo {
+  margin-bottom: 1.5rem;
+}
+
+.stationName {
+  font-weight: 500;
+  color: #111827;
+}
+
+.journeyInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.departureInfo,
+.arrivalInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrivalInfo {
+  text-align: right;
+}
+
+.dateLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.timeLabel {
+  font-weight: 500;
+  color: #111827;
+}
+
+.locationLabel {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.durationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.durationLine {
+  width: 6rem;
+  height: 2px;
+  background-color: #d1d5db;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.durationDot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #0078ff;
+  border-radius: 50%;
+  top: -2px;
+}
+
+.durationDot:first-child {
+  left: -3px;
+}
+
+.durationDot:last-child {
+  right: -3px;
+}
+
+.durationLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.changeButton {
+  padding: 0.5rem;
+  background-color: white;
+  color: #0078ff;
+  border: 1px solid #0078ff;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.changeButton:hover {
+  background-color: rgba(0, 120, 255, 0.05);
+}
+
+@media (max-width: 640px) {
+  .journeyInfo {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .departureInfo,
+  .arrivalInfo {
+    text-align: center;
+  }
+
+  .durationContainer {
+    order: -1;
+  }
+
+  .durationLine {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Bill details css */
+.bill-details-container {
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  background-color: white;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.billItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.billLabel {
+  color: #6b7280;
+}
+
+.billValue {
+  font-weight: 500;
+  color: #111827;
+}
+
+.totalItem {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.totalLabel {
+  font-weight: 500;
+  color: #111827;
+}
+
+.totalValue {
+  font-weight: 700;
+  color: #111827;
+}
+
