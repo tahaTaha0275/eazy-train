@@ -1,0 +1,56 @@
+/* CSS FOR HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: white;
+  }
+  @media (min-width: 768px) {
+    .header {
+      padding: 0.75rem 2rem;
+    }
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+  }
+  .logoBlue {
+    color: #1e70f0;
+  }
+  .logoLightBlue {
+    color: #2d8af8;
+  }
+  .headerLinks {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .bookingLink {
+    font-size: 0.875rem;
+    color: #4b5563;
+    text-decoration: none;
+  }
+  .bookingLink:hover {
+    color: #2d8af8;
+  }
+  .divider {
+    height: 1rem;
+    border-right: 1px solid #d1d5db;
+  }
+  .authLink {
+    font-size: 0.875rem;
+    color: #2d8af8;
+    text-decoration: none;
+  }
+  .authLink:hover {
+    text-decoration: underline;
+  }
+  .authSeparator {
+    color: #9ca3af;
+  }
+  

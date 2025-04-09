@@ -1,0 +1,131 @@
+/*CSS For TravellerForm */
+.traveller-form-container {
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .tab {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .tab:hover {
+    background-color: #f9fafb;
+  }
+  .activeTab {
+    color: #0078ff;
+    border-bottom: 2px solid #0078ff;
+  }
+  .tabContent {
+    padding: 1.5rem;
+  }
+  .tabDescription {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+  .travellerList {
+    margin-bottom: 1.5rem;
+  }
+  .travellerItem {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #f9fafb;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .travellerNumber {
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+  .travellerName {
+    flex: 1;
+  }
+  .travellerActions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .editButton,
+  .deleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  .editButton {
+    color: #0078ff;
+    background-color: rgba(0, 120, 255, 0.1);
+  }
+  .deleteButton {
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
+  }
+  .formTitle {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .formRow {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 640px) {
+    .formRow {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .formLabel {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  .formInput,
+  .formSelect {
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+  }
+  .formInput:focus,
+  .formSelect:focus {
+    outline: none;
+    border-color: #0078ff;
+    box-shadow: 0 0 0 1px #0078ff;
+  }
+  .saveButton {
+    padding: 0.5rem 1.5rem;
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+  }
+  .saveButton:hover {
+    background-color: #0066cc;
+  }
+  .contactForm {
+    margin-top: 1rem;
+  }
+  
