@@ -4,7 +4,10 @@ import TravellerForm from '../components/TravellerForm';
 import BoardingDetails from '../components/BoardingDetails';
 import BillDetails from '../components/BillDetails';
 import {trainData} from '../lib/utils' 
+import TravellerDetailsCard from '../components/TravellerDetailsCard';
+import PassengerContact from '../components/PassengerContact';
 import "./Review.css"
+
 export default function Review() {
   const [searchParams] = useSearchParams();
   const trainId = searchParams.get("trainId");
@@ -38,7 +41,8 @@ export default function Review() {
 
         <div className={"reviewContainer"}>
           <div className={"leftColumn"}>
-            <TravellerForm />
+          <TravellerDetailsCard />
+          <PassengerContact />
           </div>
 
           <div className={"rightColumn"}>
