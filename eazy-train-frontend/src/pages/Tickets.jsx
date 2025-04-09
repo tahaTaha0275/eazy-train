@@ -1,6 +1,7 @@
 import { TrainList } from "../components/TrainList"
 import { SearchForm } from "../components/SearchForm"
 import { DateSelector } from "../components/DateSelector"
+import "./Tickets.css"
 
 export default function Tickets(){
   return (

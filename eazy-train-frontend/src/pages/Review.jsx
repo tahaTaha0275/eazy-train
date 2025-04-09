@@ -4,7 +4,7 @@ import TravellerForm from '../components/TravellerForm';
 import BoardingDetails from '../components/BoardingDetails';
 import BillDetails from '../components/BillDetails';
 import {trainData} from '../lib/utils' 
-
+import "./Review.css"
 export default function Review() {
   const [searchParams] = useSearchParams();
   const trainId = searchParams.get("trainId");
@@ -24,25 +24,6 @@ export default function Review() {
   if (!selectedTrain) {
     return (
       <div className={"container"}>
-        <header className={"header"}>
-          <Link to="/" className={"logo"}>
-            <span className={"logoBlue"}>Eazy</span>
-            <span className={"logoLightBlue"}>Train</span>
-          </Link>
-          <div className={"headerLinks"}>
-            <Link to="/booking" className={"bookingLink"}>
-              My Booking
-            </Link>
-            <div className={"divider"}></div>
-            <Link to="/login" className={"authLink"}>
-              Login
-            </Link>
-            <span className={"authSeparator"}>/</span>
-            <Link to="/signup" className={"authLink"}>
-              Sign in
-            </Link>
-          </div>
-        </header>
         <main className={"main"}>
           <div className={"loading"}>Loading booking details...</div>
         </main>
