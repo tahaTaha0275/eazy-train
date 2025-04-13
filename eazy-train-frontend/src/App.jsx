@@ -11,7 +11,7 @@ import "./components/styles/Footer.css"
 import "./components/styles/Header.css"
 import "./components/styles/SearchForm.css"
 import "./components/styles/TrainList.css"
-import "./components/styles/TravellerForm.css"
+// import "./components/styles/TravellerForm.css"
 
 
 function App() {
