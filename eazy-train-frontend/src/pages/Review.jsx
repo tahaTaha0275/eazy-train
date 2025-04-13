@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';  
 import { Link, useSearchParams } from 'react-router-dom';  
-import TravellerForm from '../components/TravellerForm'; 
+// import TravellerForm from '../components/TravellerForm'; 
 import BoardingDetails from '../components/BoardingDetails';
 import BillDetails from '../components/BillDetails';
 import {trainData} from '../lib/utils' 

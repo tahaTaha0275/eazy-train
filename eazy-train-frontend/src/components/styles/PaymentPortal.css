@@ -1,0 +1,52 @@
+/* PaymentPortal.css */
+
+/* Container to hold everything in the middle of the screen vertically,
+   but left-aligned horizontally if you prefer. */
+   .payment-portal {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* The main area (between header and footer) */
+  .payment-portal-main {
+    /* Remove auto-centering */
+    
+    margin: 2rem;   /* or margin-left: 2rem; margin-right: 2rem; if you want extra spacing */
+    padding: 2rem 0;
+    text-align: left;  /* ensures text is not centered */
+  }
+  
+  /* Title styling */
+  .portal-title {
+    text-align: left; /* or just remove this property if you want default browser alignment */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  /* Two-column container */
+  .content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  
+  .left-column,.right-column {
+    flex: 1;
+    min-width: 300px;   
+  }
+
+ 
+  /* Optional: If you do NOT want them to stretch the entire width, you can
+     wrap them in a separate container with a fixed max-width, but align left:
+  .container-width {
+    max-width: 1200px;
+    margin-left: 2rem;  // or margin-left: auto; margin-right: auto; to re-center
+  }
+  */
+  
+  /* Footer stays at the bottom but not necessarily centered horizontally */
+  /* or remove if you prefer another alignment */
+  

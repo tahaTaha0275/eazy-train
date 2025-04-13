@@ -3,6 +3,7 @@ import {Routes, Route } from 'react-router-dom'
 import Tickets from './pages/Tickets' 
 import Layout from './pages/Layout'
 import Review from "./pages/Review"
+import PaymentPortal from './components/paymentPortal'
 
 import "./components/styles/BillDetails.css"
 import "./components/styles/BoardingDetails.css"
@@ -11,7 +12,7 @@ import "./components/styles/Footer.css"
 import "./components/styles/Header.css"
 import "./components/styles/SearchForm.css"
 import "./components/styles/TrainList.css"
-import "./components/styles/TravellerForm.css"
+// import "./components/styles/TravellerForm.css"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Route path="/" element = {<Layout />}>
                 <Route index element={<Tickets />} />
                 <Route path='/review' element={<Review />} />
+                <Route path='/paymentportal' element={<PaymentPortal />} />
               </Route>
             </Routes>
         </div>
