@@ -1,0 +1,137 @@
+.payment-method {
+  max-width: 650px;
+  padding: 2 rem;
+}
+
+.payment-method-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.payment-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.payment-option.selected {
+  background-color: white;
+  color: black;
+}
+
+.payment-option input[type="radio"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.payment-option-label {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.option-heading {
+  font-weight: 600;
+}
+
+.option-subtext {
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.arrow-indicator {
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.payment-option.selected .arrow-indicator {
+  color: #fff;
+}
+
+.credit-card-form {
+  margin-top: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+/* Existing form row styling */
+.form-row {
+  margin-left: 0.75rem;
+  display: flex;
+}
+
+/* New rule: For Card Number and Cardholder Name rows only, stack label above input */
+.credit-card-form .form-row:not(.small-inputs) {
+  flex-direction: column;
+}
+
+.form-row label {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-row input {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.small-inputs {
+  display: flex;
+  gap: 1rem; /* Adjust gap between fields as needed */
+}
+
+.small-inputs > div {
+  flex: 1; /* Each child will take an equal share of the row */
+}
+
+.pay-button {
+  margin: 1rem auto; /* 1rem top/bottom, auto left/right centers the button */
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  width: 91%;
+}
+
+.pay-button:hover {
+  background-color: #218838;
+}
+
+/* New ApplePay form styling */
+.applepay-form {
+  margin-top: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.applepay-button {
+  background-color: #000; /* Apple's black, or adjust as needed */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto; /* center the button */
+}
+
+.applepay-button:hover {
+  background-color: #333;
+}

@@ -1,43 +1,63 @@
 /* CSS for BillDetails */
 .bill-details-container {
-    border: 1px solid #e5e5e5;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    padding: 1.5rem;
-    background-color: white;
-  }
-  .title {
-    font-weight: 500;
-    font-size: 1rem;
-    color: #111827;
-    margin-bottom: 1rem;
-  }
-  .billItem {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    font-size: 0.875rem;
-  }
-  .billLabel {
-    color: #6b7280;
-  }
-  .billValue {
-    font-weight: 500;
-    color: #111827;
-  }
-  .totalItem {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1rem;
-    margin-top: 0.5rem;
-    border-top: 1px solid #e5e5e5;
-  }
-  .totalLabel {
-    font-weight: 500;
-    color: #111827;
-  }
-  .totalValue {
-    font-weight: 700;
-    color: #111827;
-  }
-  
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  background-color: white;
+}
+.title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+.billItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+.billLabel {
+  color: #6b7280;
+}
+.billValue {
+  font-weight: 500;
+  color: #111827;
+}
+.totalItem {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #e5e5e5;
+}
+.totalLabel {
+  font-weight: 500;
+  color: #111827;
+}
+.totalValue {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* New Cancel Button Styling */
+.actionItem {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.cancel-button {
+  background-color: #d9534f;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #c9302c;
+}

@@ -1,23 +1,25 @@
 export default function BillDetails({ train, ticketType }) {
   const getBasePrice = () => {
-    if (!train) return 95
+    if (!train) return 95;
     return ticketType === "business"
       ? Number.parseInt(train.businessPrice) - 25
-      : Number.parseInt(train.standardPrice) - 25
-  }
+      : Number.parseInt(train.standardPrice) - 25;
+  };
 
   const getTax = () => {
-    return 5
-  }
+    return 5;
+  };
 
   const getFee = () => {
-    return 20
-  }
+    return 20;
+  };
 
   const getTotal = () => {
-    if (!train) return 120
-    return ticketType === "business" ? Number.parseInt(train.businessPrice) : Number.parseInt(train.standardPrice)
-  }
+    if (!train) return 120;
+    return ticketType === "business"
+      ? Number.parseInt(train.businessPrice)
+      : Number.parseInt(train.standardPrice);
+  };
 
   return (
     <div className={"bill-details-container"}>
@@ -42,7 +44,13 @@ export default function BillDetails({ train, ticketType }) {
         <div className={"totalLabel"}>Total Charge</div>
         <div className={"totalValue"}>{getTotal()} SAR</div>
       </div>
-    </div>
-  )
-}
 
+      {/* New red cancel button */}
+      <div className={"actionItem"}>
+        <button className={"cancel-button"} type="button">
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+}

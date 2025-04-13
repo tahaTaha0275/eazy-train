@@ -1,0 +1,26 @@
+.booking-details {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .section-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .booking-info {
+    margin-bottom: 1rem;
+  }
+  
+  .booking-info .route,
+  .booking-info .datetime {
+    margin-bottom: 0.5rem;
+  }
+  
+  .passenger-info h3 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: #555;
+  }

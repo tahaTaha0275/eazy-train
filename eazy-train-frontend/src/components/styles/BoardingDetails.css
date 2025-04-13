@@ -1,118 +1,151 @@
-/* CSS For BoardingDetails */
+/* BoardingDetails.css */
+
 .boarding-details-container {
-    border: 1px solid #e5e5e5;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    padding: 1.5rem;
-    background-color: #f0f7ff;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  .title {
-    font-weight: 500;
-    font-size: 1rem;
-    color: #111827;
-  }
-  .classInfo {
-    font-size: 0.75rem;
-    color: #0078ff;
-  }
-  .stationInfo {
-    margin-bottom: 1.5rem;
-  }
-  .stationName {
-    font-weight: 500;
-    color: #111827;
-  }
-  .journeyInfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  .departureInfo,
-  .arrivalInfo {
-    display: flex;
-    flex-direction: column;
-  }
-  .arrivalInfo {
-    text-align: right;
-  }
-  .dateLabel {
-    font-size: 0.75rem;
-    color: #6b7280;
-  }
-  .timeLabel {
-    font-weight: 500;
-    color: #111827;
-  }
-  .locationLabel {
-    font-size: 0.75rem;
-    color: #4b5563;
-  }
-  .durationContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .durationLine {
-    width: 6rem;
-    height: 2px;
-    background-color: #d1d5db;
-    position:relative;
-    margin-bottom: 0.5rem;
-  }
-  .durationDot {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background-color: #0078ff;
-    border-radius: 50%;
-    top: -2px;
-  }
-  .durationDot:first-child {
-    left: -3px;
-  }
-  .durationDot:last-child {
-    right: -3px;
-  }
-  .durationLabel {
-    font-size: 0.75rem;
-    color: #6b7280;
-  }
-  .changeButton {
-    padding: 0.5rem;
-    background-color: white;
-    color: #0078ff;
-    border: 1px solid #0078ff;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    width: 100%;
-  }
-  .changeButton:hover {
-    background-color: rgba(0, 120, 255, 0.05);
-  }
-  @media (max-width: 640px) {
-    .journeyInfo {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .departureInfo,
-    .arrivalInfo {
-      text-align: center;
-    }
-    .durationContainer {
-      order: -1;
-    }
-    .durationLine {
-      width: 100%;
-      max-width: 200px;
-    }
-  }
-  
+  background-color: rgba(5,120,255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.class-info {
+  font-size: 0.95rem;
+  color: #0275d8; 
+  font-weight: 500;
+}
+
+.station-info {
+  margin-bottom: 1rem;
+}
+
+.station-name {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* --- Modified Journey Info Section --- */
+/* Changed to grid layout to place departure on left and arrival on right */
+.journey-info {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Ensure departure and arrival text alignment */
+.departure-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  text-align: left;
+}
+
+.arrival-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  text-align: right;
+}
+
+/* --- End Modified Journey Info Section --- */
+
+.duration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: center;
+}
+
+/* Create a horizontal line with dots at both ends */
+.duration-line {
+  position: relative;
+  width: 600px; /* Increased width for a longer line */
+  height: 2px;
+  background: #ccc;  /* Line color */
+}
+
+/* Dot styling using pseudo-elements (dots same color as the line) */
+.duration-line::before,
+.duration-line::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ccc;  /* Same as line color */
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.duration-line::before {
+  left: 0;
+}
+
+.duration-line::after {
+  right: 0;
+}
+
+.duration-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1.5rem 0;
+}
+
+
+/* Traveller Details */
+.traveller-details h3 {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.traveller-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* E-ticket container */
+.eticket-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.eticket-label p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.eticket-destination {
+  text-align: right;
+}
+
+.eticket-destination p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
