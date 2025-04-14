@@ -13,6 +13,8 @@ import "./components/styles/Header.css"
 import "./components/styles/SearchForm.css"
 import "./components/styles/TrainList.css"
 // import "./components/styles/TravellerForm.css"
+import "./components/BookedTicket"
+import BookedTicket from './components/BookedTicket'
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
                 <Route index element={<Tickets />} />
                 <Route path='/review' element={<Review />} />
                 <Route path='/paymentportal' element={<PaymentPortal />} />
+                <Route path='/BookedTicket' element={<BookedTicket />} />
               </Route>
             </Routes>
         </div>

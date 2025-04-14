@@ -11,7 +11,6 @@ const PaymentPortal = () => {
       <main className="payment-portal-main">
         <h1 className="portal-title">Review Your Booking</h1>
 
-        {/* 2-column container */}
         <div className="content-grid">
           <div className="left-column">
             <BookingDetails />
@@ -21,7 +20,6 @@ const PaymentPortal = () => {
           </div>
         </div>
 
-        {/* Payment method below the 2-column layout */}
         <PaymentMethods />
       </main>
 

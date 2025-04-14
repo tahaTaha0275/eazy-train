@@ -1,0 +1,58 @@
+.barcode-section {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: left; 
+}
+  
+  .barcode-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .barcode-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    display: block; 
+    margin: 0 auto; 
+  }
+  
+  .barcode-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .barcode-buttons button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    background-color: #007bff; 
+    transition: background-color 0.3s;
+  }
+  
+  .barcode-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .barcode-buttons button:nth-child(1),
+  .barcode-buttons button:nth-child(2) {
+    background-color: #fff;       
+    color: black;
+    font:bold;              
+    border: 2px solid #007bff;   
+  }
+  
+  .barcode-buttons button:nth-child(1):hover,
+  .barcode-buttons button:nth-child(2):hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  p{
+    text-align: center;
+  }
+  
