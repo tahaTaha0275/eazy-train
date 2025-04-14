@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import appleLogo from '../ap-button@2x.png';
 import './styles/PaymentMethod.css';
 
 const PaymentMethods = () => {
   const [selectedMethod, setSelectedMethod] = useState('');
+  const navigate = useNavigate();
 
   // Card details in local state (demo)
   const [cardNumber, setCardNumber] = useState('');
@@ -12,6 +15,11 @@ const PaymentMethods = () => {
 
   const handleMethodChange = (e) => {
     setSelectedMethod(e.target.value);
+  };
+
+  // Redirect user when they press the pay button.
+  const handlePayClick = () => {
+    navigate('/bookedticket'); // Adjust the route path as needed
   };
 
   return (
@@ -79,7 +87,7 @@ const PaymentMethods = () => {
                 />
               </div>
 
-              {/* CVV field + Pay button below it */}
+              {/* CVV field */}
               <div>
                 <label htmlFor="cvv">CVV</label>
                 <input
@@ -89,12 +97,10 @@ const PaymentMethods = () => {
                   value={cvv}
                   onChange={(e) => setCvv(e.target.value)}
                 />
-
-                {/* New Pay button below CVV */}
               </div>
             </div>
             <div>
-              <button className="pay-button" type="button">
+              <button className="pay-button" type="button" onClick={handlePayClick}>
                 Pay
               </button>
             </div>
@@ -124,8 +130,13 @@ const PaymentMethods = () => {
         {/* Show ApplePay form if "applePay" is selected */}
         {selectedMethod === 'applePay' && (
           <div className="applepay-form">
-            <button className="applepay-button" type="button">
-              Pay by ApplePay
+            <button className="applepay-button" type="button" onClick={handlePayClick}>
+              <img
+                src={appleLogo}
+                alt="Apple Pay"
+                className="applepay-button-logo"
+              />
+             
             </button>
           </div>
         )}

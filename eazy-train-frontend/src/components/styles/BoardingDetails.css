@@ -35,8 +35,7 @@
   font-weight: 500;
 }
 
-/* --- Modified Journey Info Section --- */
-/* Changed to grid layout to place departure on left and arrival on right */
+
 .journey-info {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -45,7 +44,6 @@
   margin-bottom: 1rem;
 }
 
-/* Ensure departure and arrival text alignment */
 .departure-info {
   display: flex;
   flex-direction: column;
@@ -60,7 +58,6 @@
   text-align: right;
 }
 
-/* --- End Modified Journey Info Section --- */
 
 .duration-container {
   display: flex;
@@ -72,19 +69,18 @@
 /* Create a horizontal line with dots at both ends */
 .duration-line {
   position: relative;
-  width: 600px; /* Increased width for a longer line */
+  width: 600px; 
   height: 2px;
   background: #ccc;  /* Line color */
 }
 
-/* Dot styling using pseudo-elements (dots same color as the line) */
 .duration-line::before,
 .duration-line::after {
   content: "";
   position: absolute;
   width: 8px;
   height: 8px;
-  background: #ccc;  /* Same as line color */
+  background: #ccc;  
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);

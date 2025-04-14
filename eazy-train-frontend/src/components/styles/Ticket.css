@@ -1,0 +1,55 @@
+
+/* Line container to position the trip duration above the line */
+.line-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px; /* match line width */
+  }
+  
+  /* Trip Duration section */
+  .trip-duration {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: grey; /* Blue text */
+  }
+  
+  /* Existing styles for journey info */
+  .journey-info {
+    display: flex;
+    justify-content: center; /* Centers the departure & arrival blocks horizontally */
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 2rem; /* space between blocks & line */
+  }
+    
+  /* Each journey block (departure or arrival) text is centered */
+  .journey-block {
+    text-align: center;
+    min-width: 120px;
+  }
+    
+  /* The thin gray line between departure & arrival */
+  .line {
+    width: 400px;        
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 1rem;      /* space around the line */
+  }
+  
+  /* Layout for traveler information */
+  .traveller-info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  
+  .personal-info, .booking-info {
+    flex: 1;
+    padding: 0 1rem;
+  }
+  
+  .personal-info {
+    border-right: 1px solid #ddd;
+  }
