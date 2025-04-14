@@ -1,5 +1,6 @@
 import {Routes, Route } from 'react-router-dom'
 
+import Login from './pages/Login'
 import Tickets from './pages/Tickets' 
 import Layout from './pages/Layout'
 import Review from "./pages/Review"
@@ -21,11 +22,12 @@ function App() {
   return (
         <div className={"container"}>
             <Routes>
-              <Route path="/" element = {<Layout />}>
+              <Route path='/' element = {<Login />} />
+              <Route path="/tickets" element = {<Layout />}>
                 <Route index element={<Tickets />} />
-                <Route path='/review' element={<Review />} />
-                <Route path='/paymentportal' element={<PaymentPortal />} />
-                <Route path='/BookedTicket' element={<BookedTicket />} />
+                <Route path='review' element={<Review />} />
+                <Route path='paymentportal' element={<PaymentPortal />} />
+                <Route path='BookedTicket' element={<BookedTicket />} />
               </Route>
             </Routes>
         </div>
