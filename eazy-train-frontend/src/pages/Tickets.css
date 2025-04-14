@@ -18,12 +18,14 @@ html,body{
   
   .contentGrid {
     display: grid;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
   }
   
-  @media (min-width: 768px) {
+  @media (max-width: 800px) {
     .contentGrid {
-      grid-template-columns: 350px 1fr;
+      display: flex;
+      flex-direction: column;
     }
   }
   
@@ -44,8 +46,9 @@ html,body{
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
+    width:80%;
   }
-  
+
   .resultsHeader {
     display: flex;
     align-items: center;
