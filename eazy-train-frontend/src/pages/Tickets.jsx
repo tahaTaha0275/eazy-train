@@ -5,7 +5,7 @@ import "./Tickets.css"
 
 export default function Tickets(){
   return (
-    <main className={"main"}>
+    <main className={"main"} style={{ paddingLeft: 0, paddingRight: 0 }}>
         <div className={"contentGrid"}>
           <div className={"sidebar"}>
             <h1 className={"sidebarTitle"}>Your Search Results</h1>

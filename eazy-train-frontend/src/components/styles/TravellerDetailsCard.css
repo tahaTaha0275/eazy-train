@@ -1,221 +1,225 @@
 .traveller-details-card {
-    background-color: #ffffff;
-    border-radius: 0.75rem;
-    border: 1px solid #e5e7eb;
-    padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    font-family: "Poppins", sans-serif;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+.traveller-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.traveller-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.traveller-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px 0;
+}
+
+.traveller-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.add-traveller-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #dbeafe;
+  color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.plus-icon {
+  line-height: 1;
+}
+
+.traveller-list {
+  margin-bottom: 24px;
+}
+
+.traveller-item {
+  display: flex;
+  align-items: center;
+  background-color: #f0f7ff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.traveller-index {
+  color: #4b5563;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.traveller-name {
+  flex: 1;
+  font-weight: 500;
+  color: #111827;
+}
+
+.traveller-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button,
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.edit-button {
+  color: #3b82f6;
+}
+
+.delete-button {
+  color: #ef4444;
+}
+
+.traveller-form {
+  margin-top: 20px;
+}
+
+.form-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 20px 0;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* @media (min-width: 768px) {
+  .form-row:first-of-type {
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  
-  /* Header styles */
-  .traveller-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
+
+  .form-row:last-of-type {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .traveller-title-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .traveller-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 0.25rem 0;
-  }
-  
-  .traveller-subtitle {
-    font-size: 0.75rem;
-    color: #6b7280;
-  }
-  
-  .add-traveller-button {
-    width: 2rem;
-    height: 2rem;
-    background-color: #3b82f6;
-    border: none;
-    border-radius: 0.375rem;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .add-traveller-button:hover {
-    background-color: #2563eb;
-  }
-  
-  .plus-icon {
-    font-size: 1.25rem;
-    line-height: 1;
-  }
-  
-  /* Traveller list styles */
-  .traveller-list {
-    margin-bottom: 1.5rem;
-  }
-  
-  .traveller-item {
-    display: flex;
-    align-items: center;
-    background-color: #f0f7ff;
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .traveller-index {
-    font-weight: 500;
-    margin-right: 0.75rem;
-    color: #111827;
-  }
-  
-  .traveller-name {
-    flex: 1;
-    color: #111827;
-  }
-  
-  .traveller-actions {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .edit-button,
-  .delete-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s;
-  }
-  
-  .edit-button {
-    color: #3b82f6;
-  }
-  
-  .edit-button:hover {
-    background-color: rgba(59, 130, 246, 0.1);
-  }
-  
-  .delete-button {
-    color: #ef4444;
-  }
-  
-  .delete-button:hover {
-    background-color: rgba(239, 68, 68, 0.1);
-  }
-  
-  /* Form styles */
-  .traveller-form {
-    margin-top: 1.5rem;
-  }
-  
-  .form-section-title {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #111827;
-    margin-bottom: 1.25rem;
-  }
-  
-  .form-row {
-    display: flex;
-    margin-bottom: 1.25rem;
-  }
-  
-  .form-group {
-    flex: 1;
-    position: relative;
-  }
-  
-  .id-type-group {
-    flex: 2;
-  }
-  
-  .form-input,
-  .form-select {
-    width: 100%;
-    padding: 0.75rem 0;
-    border: none;
-    border-bottom: 1px solid #d1d5db;
-    font-size: 0.875rem;
-    color: #111827;
-    background-color: transparent;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  
-  .form-input::placeholder {
-    color: #9ca3af;
-  }
-  
-  .form-input:focus,
-  .form-select:focus {
-    border-color: #3b82f6;
-  }
-  
-  .select-wrapper {
-    position: relative;
-  }
-  
-  .form-select {
-    appearance: none;
-    padding-right: 1.5rem;
-  }
-  
-  .select-arrow {
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.625rem;
-    color: #6b7280;
-    pointer-events: none;
-  }
-  
+
   .save-button-container {
+    grid-column: 3;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
   }
-  
-  .save-button {
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 0.375rem;
-    padding: 0.75rem 2rem;
-    font-weight: 500;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
+} */
+
+.form-group {
+  position: relative;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid #d1d5db;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+  color: #111827;
+}
+input[type=number]{
+  margin-left: 0.5rem;
+}
+.form-input:focus,
+.form-select:focus {
+  border-color: #6b7280;
+}
+
+.form-input::placeholder,
+.form-select::placeholder {
+  color: #9ca3af;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.form-select {
+  appearance: none;
+  padding-right: 20px;
+  margin-left: 1rem;
+  margin-right: 2rem;
+
+}
+
+.select-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.save-button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-top: 0;
+}
+
+.save-button:hover {
+  background-color: #2563eb;
+}
+
+/* Fix for the second form row layout */
+@media (min-width: 768px) {
+  .id-type-group {
+    grid-column: 2;
   }
-  
-  .save-button:hover {
-    background-color: #2563eb;
+
+  .save-button-container {
+    grid-column: 1 / span 2;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .form-row {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .save-button-container {
-      justify-content: center;
-      margin-top: 1rem;
-    }
-  
-    .save-button {
-      width: 100%;
-    }
-  }
-  
+}

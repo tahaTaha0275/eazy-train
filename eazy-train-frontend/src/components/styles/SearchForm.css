@@ -7,7 +7,7 @@
   .inputGroup {
     display: grid;
     gap: 0.5rem;
-    width: 92.5%;
+    width: 90%;
   }
   .input {
     padding: 0.5rem 0.75rem;
@@ -22,7 +22,7 @@
     box-shadow: 0 0 0 1px #2d8af8;
   }
   .searchButton {
-    width: 100%;
+    width: 97%;
     padding: 0.5rem 1rem;
     background-color: #2d8af8;
     color: white;

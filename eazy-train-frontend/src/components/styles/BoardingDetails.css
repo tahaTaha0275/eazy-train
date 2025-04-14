@@ -72,6 +72,7 @@
   width: 600px; 
   height: 2px;
   background: #ccc;  /* Line color */
+  width: 200%;
 }
 
 .duration-line::before,

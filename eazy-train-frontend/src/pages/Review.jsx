@@ -27,7 +27,7 @@ export default function Review() {
   if (!selectedTrain) {
     return (
       <div className={"container"}>
-        <main className={"main"}>
+        <main className={"main"} style={{ paddingLeft: 0, paddingRight: 0 }}>
           <div className={"loading"}>Loading booking details...</div>
         </main>
       </div>
