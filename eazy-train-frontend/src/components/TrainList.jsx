@@ -6,7 +6,7 @@ export function TrainList() {
     const navigate = useNavigate()
 
     const handleSelectTicket = (trainId, ticketType) => {
-        navigate(`/review?trainId=${trainId}&ticketType=${ticketType}`);
+        navigate(`/tickets/review?trainId=${trainId}&ticketType=${ticketType}`);
       }
 
   return (
