@@ -1,0 +1,31 @@
+.logo-container {
+    margin-bottom: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Poppins';
+    line-height: 1;
+  }
+  
+  .logo-eazy {
+    color: #000;
+    font-size: 8rem;
+  }
+  
+  .logo-train {
+    color: #0066ff;
+    font-size: 8rem;
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 2.5rem;
+    }
+  }
+  

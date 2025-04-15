@@ -1,0 +1,42 @@
+.date-input-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .date-input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .date-input {
+    width: 100%;
+    padding: 0.75rem 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: 'Poppins';
+    background-color: transparent;
+  }
+  
+  .date-input:focus {
+    outline: none;
+    border-bottom: 2px solid #0066ff;
+  }
+  
+  .date-input-container.disabled {
+    opacity: 0.5;
+  }
+  
+  .date-input-container.disabled .date-input {
+    cursor: not-allowed;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0066ff;
+    pointer-events: none;
+  }
+  

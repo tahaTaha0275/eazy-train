@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';  
 import { Link, useSearchParams } from 'react-router-dom';  
-// import TravellerForm from '../components/TravellerForm'; 
 import BoardingDetails from '../components/BoardingDetails';
 import BillDetails from '../components/BillDetails';
 import {trainData} from '../lib/utils' 
@@ -26,7 +25,7 @@ export default function Review() {
 
   if (!selectedTrain) {
     return (
-      <div className={"container"}>
+      <div className={"review-container"}>
         <main className={"main"} style={{ paddingLeft: 0, paddingRight: 0 }}>
           <div className={"loading"}>Loading booking details...</div>
         </main>

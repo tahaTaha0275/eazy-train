@@ -1,0 +1,127 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+    justify-content: space-between;
+    
+  }
+  
+  .home-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  
+  .logo-container {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+  }
+  
+  .logo {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  .logo-eazy {
+    color: #000;
+  }
+  
+  .logo-train {
+    color: #0066ff;
+  }
+  
+  .search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .trip-toggle {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .toggle-btn {
+    background-color: #e6e6e6;
+    color: #333;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .toggle-btn.active {
+    background-color: #0066ff;
+    color: white;
+  }
+  
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .formHome-input {
+    width: 100%;
+    padding: 0.75rem 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+  
+  .formHome-input:focus {
+    outline: none;
+    border-bottom: 2px solid #0066ff;
+  }
+  
+  .formHome-input.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .date-input-container {
+    position: relative;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0066ff;
+  }
+  
+  .search-button {
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+    width: 100%;
+    margin: auto
+  }
+  
+  .search-button:hover {
+    background-color: #0052cc;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+    }
+  
+  }
+  
