@@ -1,5 +1,6 @@
 import {Routes, Route } from 'react-router-dom'
 
+import Homepage from './pages/Homepage'
 import Login from './pages/Login'
 import Tickets from './pages/Tickets' 
 import Layout from './pages/Layout'
@@ -16,6 +17,7 @@ import "./components/styles/TrainList.css"
 // import "./components/styles/TravellerForm.css"
 import "./components/BookedTicket"
 import BookedTicket from './components/BookedTicket'
+import { Home } from 'lucide-react'
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <div className={"container"}>
             <Routes>
               <Route path='/' element = {<Login />} />
+              <Route path="/home" element={<Homepage />} />
               <Route path="/tickets" element = {<Layout />}>
                 <Route index element={<Tickets />} />
                 <Route path='review' element={<Review />} />
