@@ -15,9 +15,9 @@
   - JavaScript
   - HTML/CSS
 - **Backend:**
-  - [Details not specified]
+  - [Soon]
 - **Database:**
-  - [Details not specified]
+  - [Soon]
 
 ## Installation
 
