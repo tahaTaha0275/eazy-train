@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     background-color: white;
   }
   
@@ -28,6 +28,7 @@
   .login-subtitle {
     margin-bottom: 2rem;
     color: #666;
+    display: inline-block;
   }
   
   .create-account-link {
@@ -49,7 +50,7 @@
   
   .form-group input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 0.375rem;
     font-size: 1rem;
@@ -153,11 +154,12 @@
   
   .login-right {
     flex: 1;
-    background-color: #0066ff;
+    background-color: #0578FF;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
+    padding-bottom: 6rem;
   }
   
   .brand-container {
@@ -175,7 +177,7 @@
   }
   
   .brand-eazy {
-    color: #ffd700;
+    color: #F7FAFC;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
   
@@ -185,33 +187,60 @@
   }
   
   .promo-card {
-    background-color: white;
-    border-radius: 0.5rem;
+    background-color: #f4f4f4;
+    border-radius: 1rem;
     padding: 2rem;
-    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
   }
   
   .promo-content {
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    color: #0066ff;
+    font-family: "Inter";
+    font-size: 1.5rem;
   }
   
-  .promo-text {
-    font-size: 1.25rem;
-    color: #0066ff;
-    font-weight: 500;
-    line-height: 1.5;
+  .promo-text p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0;
   }
   
   .train-image {
-    width: 150px;
-    height: 100px;
+    width: 200px;
+    height: auto;
     object-fit: cover;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
+  }
+
+  .promo-button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  
+  .promo-button:hover {
+    background-color: #0052cc;
   }
   
-  .learn-more-button {
+  /* .learn-more-button {
     background-color: #0066ff;
     color: white;
     border: none;
@@ -224,7 +253,7 @@
   
   .learn-more-button:hover {
     background-color: #0052cc;
-  }
+  } */
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
