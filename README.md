@@ -7,7 +7,7 @@
 - **Train Search:** Find available trains based on origin, destination, and travel dates.
 - **Reservation System:** Book seats and manage your reservations with ease.
 - **User Authentication:** Secure login and registration for users.
-- **Admin Dashboard:** Manage train schedules, monitor bookings, and oversee system operations.
+- **Admin Dashboard:** Manage train schedules, monitor bookings, and oversee system operations.
 
 ## Technologies Used
 
@@ -51,16 +51,16 @@
 
 ## Usage
 
-Once the development server is running, open your browser and navigate to `http://localhost:3000` to access the application.
+Once the development server is running, open your browser and navigate to `http://localhost:3000` to access the application.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
 
 ## License
 
-[License information not provided.]
+[License information not provided.]
 
 ---
 
-For more details, visit the [eazy-train GitHub repository](https://github.com/tahaTaha0275/eazy-train). 
+For more details, visit the [eazy-train GitHub repository](https://github.com/tahaTaha0275/eazy-train).
