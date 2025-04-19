@@ -18,7 +18,7 @@ const AdminDashboardHeader = () => {
         <h1 className="admin-title">Admin Dashboard</h1>
         <button 
           className="logout-button"
-          onClick={() => navigate('/login')}
+          onClick={() => navigate('/')}
         >
           <LogOut size={20} />
           <span>Logout</span>
