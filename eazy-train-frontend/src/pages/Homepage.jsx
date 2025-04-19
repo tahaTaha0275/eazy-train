@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Logo from "../components/Logo"
+import Title from "../components/Title"
 import TripToggle from "../components/TripToggle"
 import SearchInput from "../components/SearchInput"
 import DateInput from "../components/DateInput"
@@ -28,18 +28,18 @@ const Homepage = () => {
 
   return (
     <div className="homepage-container">
-      <Logo />
+      <Title />
 
       <div className="search-container">
         <TripToggle tripType={tripType} setTripType={setTripType} />
 
         <form onSubmit={handleSearch} className="search-form">
-          <div className="form-row">
+          <div className="home-row">
             <SearchInput placeholder="From" value={from} onChange={(e) => setFrom(e.target.value)} />
             <SearchInput placeholder="TO" value={to} onChange={(e) => setTo(e.target.value)} />
           </div>
 
-          <div className="form-row">
+          <div className="home-row">
             <DateInput
               placeholder="Departure Date"
               value={departureDate}

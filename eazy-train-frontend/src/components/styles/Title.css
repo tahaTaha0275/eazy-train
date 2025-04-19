@@ -1,4 +1,4 @@
-.logo-container {
+.title-container {
     margin-bottom: 3rem;
     text-align: center;
     display: flex;
@@ -6,26 +6,34 @@
     align-items: center;
   }
   
-  .logo {
+  .title {
     font-size: 3.5rem;
     font-weight: 700;
     font-family: 'Poppins';
     line-height: 1;
   }
   
-  .logo-eazy {
+  .title-eazy {
     color: #000;
-    font-size: 8rem;
+    font-size: 7rem;
   }
   
-  .logo-train {
+  .title-train {
     color: #0066ff;
-    font-size: 8rem;
+    font-size: 7rem;
   }
   
-  @media (max-width: 768px) {
-    .logo {
+  @media (max-width: 766px) {
+    .title-container {
+      margin-bottom: 0;
+    }
+    .title {
       font-size: 2.5rem;
     }
+    .title-eazy, 
+    .title-train {
+      font-size: 3rem;
+    }
+    
   }
   
