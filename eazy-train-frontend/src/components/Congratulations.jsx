@@ -1,5 +1,5 @@
 import React from 'react';
-const checkImagePath = './src/check.png';
+const checkImagePath = "./src/check.png";
 
 
 
@@ -9,7 +9,7 @@ const Congratulations = () => {
       {/* Image above the heading */}
       <img
         className="check-image"
-        src={checkImagePath}
+        src="/check.png"
         alt="Success Checkmark"
       />
       <h1>Congratulations! You have successfully booked tickets</h1>

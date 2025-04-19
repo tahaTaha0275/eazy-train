@@ -1,112 +1,220 @@
 
-.booked-ticket {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    max-width: 1400px; 
-    margin: 0 auto; 
-    padding: 2rem 0;
-    
-  }
-  
-  .congratulations-section {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .congratulations-section h1 {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-    color: #28a745;
-    font-weight: normal;
 
-    
-  }
-  
-  .congratulations-section p {
-    font-size: 1rem;
-    color: black;
-  }
-  .check-image {
-    width: 120px;        
-    height: auto;
-    display: block;
-    margin: 0 auto 1rem; /* centers the image and adds margin below */
-  }
-  
-  .booked-ticket-content {
-    display: flex;
-    justify-content: space-between;  
-    gap: 2rem;
-    flex-wrap: nowrap;               /* Prevent columns from wrapping if possible */
-  }
-  
-  /* Left part (Ticket) */
+.booked-ticket {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem 0;
+}
+
+
+
+
+.congratulations-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.congratulations-section h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #28a745;
+  font-weight: normal;
+}
+.congratulations-section p {
+  font-size: 1rem;
+  color: black;
+}
+.check-image {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+
+
+.booked-ticket-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.left-part {
+  flex: 2;         
+  min-width: 0;    
+}
+
+.right-part {
+  flex: 1;
+  min-width: 0;
+}
+
+
+
+.ticket-section {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+.ticket-header {
+  flex-wrap: wrap; 
+  gap: 0.5rem;
+}
+.pnr-no, .transaction-id {
+  word-break: break-all; 
+}
+.train-station {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.journey-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+.journey-block {
+  text-align: center;
+  min-width: 100px;
+  max-width: 140px; 
+  word-wrap: break-word; 
+}
+
+.date-time {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.date-label,
+.time-label {
+  display: block;
+}
+.location {
+  font-size: 0.9rem;
+  color: #555;
+}
+.line {
+  flex-shrink: 1; 
+  width: 80px; 
+  min-width: 40px; 
+}
+
+.eticket-info {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.traveller-details {
+  margin-bottom: 1rem;
+}
+.traveller-details h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.booking-status {
+  margin-top: 0.5rem;
+}
+.total-fare {
+  font-weight: 600;
+  font-size: 1rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+
+.barcode-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.barcode-wrapper {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.barcode-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+.barcode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.barcode-buttons button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  background-color: #007bff;
+  transition: background-color 0.3s;
+}
+.barcode-buttons button:hover {
+  background-color: #0056b3;
+}
+.barcode-buttons button:nth-child(1),
+.barcode-buttons button:nth-child(2) {
+  background-color: #fff;
+  color: #007bff;
+  font-weight: bold;
+  border: 2px solid #007bff;
+}
+.barcode-buttons button:nth-child(1):hover,
+.barcode-buttons button:nth-child(2):hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+
+@media (max-width: 1200px) {
   .left-part {
-    /* Make the left column larger, ensuring enough space for content */
-    flex: 1;
-    min-width: 1000px; 
-    margin-left: -15rem;
-    min-height: 572px;
+    flex: 2;
+    min-width: 400px;
   }
-  
-  /* Right part (Barcode + Buttons) */
   .right-part {
-    /* Also a decent size for the QR code and buttons */
     flex: 1;
-    min-width: 500px; 
+    min-width: 300px;
   }
-  
-  /* Ticket Section Styles */
-  .ticket-section {
-    background: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  .ticket-section h2 {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-  }
-  
-  /* Barcode / QR Section */
-  .barcode-section {
-    background: #fff;
-    padding: 1.5rem;
-    
-  }
-  
-  .barcode-wrapper {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .barcode-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  /* Buttons below the barcode */
-  .barcode-buttons {
-    display: flex;
+}
+
+@media (max-width: 800px) {
+  .booked-ticket-content {
     flex-direction: column;
-    gap: 0.75rem;
+    align-items: center;
   }
-  
-  .barcode-buttons button {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    background-color: #007bff; /* Example brand color */
-    color: #fff;
-    transition: background-color 0.3s;
+  .left-part,
+  .right-part {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
   }
-  
-  .barcode-buttons button:hover {
-    background-color: #0056b3;
+  .ticket-section,
+  .barcode-section {
+    margin-bottom: 1.5rem;
   }
-  
+}
+@media (max-width: 500px) {
+  .journey-info {
+    flex-direction: column;
+  }
+  .line {
+    width: 1px;
+    height: 40px; 
+  }
+}

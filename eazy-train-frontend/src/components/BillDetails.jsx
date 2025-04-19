@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function BillDetails({ train, ticketType }) {
+  const navigate = useNavigate();
+
   const getBasePrice = () => {
     if (!train) return 95;
     return ticketType === "business"
@@ -45,9 +49,8 @@ export default function BillDetails({ train, ticketType }) {
         <div className={"totalValue"}>{getTotal()} SAR</div>
       </div>
 
-      {/* New red cancel button */}
       <div className={"actionItem"}>
-        <button className={"cancel-button"} type="button">
+        <button className={"cancel-button"} type="button" onClick={() => navigate("/")}>
           Cancel
         </button>
       </div>

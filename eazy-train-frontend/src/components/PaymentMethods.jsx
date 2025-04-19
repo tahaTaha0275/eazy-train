@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import appleLogo from '../ap-button@2x.png';
 import './styles/PaymentMethod.css';
 
 const PaymentMethods = () => {
@@ -19,14 +18,13 @@ const PaymentMethods = () => {
 
   // Redirect user when they press the pay button.
   const handlePayClick = () => {
-    navigate('/bookedticket'); // Adjust the route path as needed
+    navigate('/tickets/bookedticket'); 
   };
 
   return (
     <div className="payment-method">
       <h2 className="payment-method-title">All Payment Options</h2>
 
-      {/* Payment option #1: Credit / Debit Card */}
       <div
         className={`payment-option ${
           selectedMethod === 'creditCard' ? 'selected' : ''
@@ -132,7 +130,7 @@ const PaymentMethods = () => {
           <div className="applepay-form">
             <button className="applepay-button" type="button" onClick={handlePayClick}>
               <img
-                src={appleLogo}
+                src="/ap-button@2x.png"
                 alt="Apple Pay"
                 className="applepay-button-logo"
               />

@@ -1,14 +1,15 @@
 // Barcode.jsx
 import React from 'react';
-const barcodeImage = './src/barcode.png'; 
+import { useNavigate } from 'react-router-dom'; 
 import './styles/Barcode.css';
 
 const Barcode = () => {
+  const navigate = useNavigate();
   return (
     <div className="barcode-section">
       <div className="barcode-wrapper">
         <img
-          src={barcodeImage}
+          src="/barcode.png"
           alt="Barcode"
           className="barcode-image"
         />
@@ -17,7 +18,7 @@ const Barcode = () => {
       <div className="barcode-buttons">
         <button>Print E-Ticket (English)</button>
         <button>Print E-Ticket (Arabic)</button>
-        <button>Book Another Ticket</button>
+        <button  onClick={() => navigate('/tickets')}>Book Another Ticket</button>
         <button>Download Ticket</button>
       </div>
     </div>
