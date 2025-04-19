@@ -1,12 +1,16 @@
+/* AdminAddTrip.css */
 @import '../styles/SharedBase.css';
 
+.home-main h2 {
+  align-self: center;
+  text-align: center;
+}
 
-
-.formHome-input {
-    background-color: #ffffff;   
-  }
-
-  .home-main h2 {
-    align-self: center;   
-    text-align: center;   
-  }
+.formHome-input,
+.formHome-input:hover,
+.formHome-input:focus,
+.formHome-input[type="date"] {
+  background-color: #fff !important;  
+  color: #000;
+  border: 1px solid #ccc;
+}
