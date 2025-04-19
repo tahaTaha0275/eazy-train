@@ -124,6 +124,8 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.25rem;
+  box-sizing: border-box;
+
 }
 
 /* @media (min-width: 768px) {
