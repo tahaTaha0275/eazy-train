@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Eye, EyeOff, User } from "lucide-react"
+import "./Login.css"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -31,13 +32,6 @@ const Login = () => {
       <div className="login-left">
         <div className="login-form-container">
           <h1 className="login-title">Sign in</h1>
-          <p className="login-subtitle">
-            Don't have an account?{" "}
-            <Link to="/register" className="create-account-link">
-              Create now
-            </Link>
-          </p>
-
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
               <label htmlFor="email">E-mail</label>
@@ -79,9 +73,6 @@ const Login = () => {
                 />
                 <label htmlFor="remember">Remember me</label>
               </div>
-              <Link to="/forgot-password" className="forgot-password">
-                Forgot Password?
-              </Link>
             </div>
 
             <button type="submit" className="sign-in-button">
@@ -92,11 +83,6 @@ const Login = () => {
               <span>OR</span>
             </div>
 
-            <button type="button" className="google-button" onClick={handleGoogleLogin}>
-              <img src="src/assets/google-icon.svg" alt="Google" className="google-icon" />
-              Continue with Google
-            </button>
-
             <button type="button" className="guest-button" onClick={handleGuestLogin}>
               <User size={20} />
               Continue as a guest
@@ -104,7 +90,6 @@ const Login = () => {
           </form>
         </div>
       </div>
-
       <div className="login-right">
         <div className="brand-container">
           <h1 className="brand-name">
