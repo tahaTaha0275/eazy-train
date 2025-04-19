@@ -5,7 +5,7 @@ export default function Header() {
             <header className={"header"}>
                 <Link href="/" className={"logo"}>
                 <span className={"logoBlue"}>Eazy</span>
-                <span className={"logoLightBlue"}>Train</span>
+                <span className={"logoBlack"}>Train</span>
                 </Link>
                 <div className={"headerLinks"}>
                 <Link href="/booking" className={"bookingLink"}>
