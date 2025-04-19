@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';  
+import { useNavigate } from 'react-router-dom';
 import { Link, useSearchParams } from 'react-router-dom';  
 import BoardingDetails from '../components/BoardingDetails';
 import BillDetails from '../components/BillDetails';
@@ -8,6 +9,7 @@ import PassengerContact from '../components/PassengerContact';
 import "./Review.css"
 
 export default function Review() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const trainId = searchParams.get("trainId");
   const ticketType = searchParams.get("ticketType");
@@ -61,7 +63,7 @@ export default function Review() {
                 policies
               </p>
 
-              <button className={"bookNowButton"}>Book Now</button>
+              <button className={"bookNowButton"} onClick={() => navigate('/tickets/paymentportal')}>Book Now</button>
 
               <Link to="/checkout" className={"checkoutLink"}>
                 Checkout
