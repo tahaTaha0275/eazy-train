@@ -115,15 +115,17 @@ const Login = () => {
           <div className="promo-card">
             <div className="promo-content">
               <p className="promo-text">
-                Seamless Journeys
+                <strong>Seamless Journeys</strong>
                 <br />
                 Start Here - Register,
                 <br />
                 Ride, Relax.
               </p>
-              <img src="src/assets/train.png" alt="High-speed train" className="train-image" />
+              {/* <img src="src/assets/train.png" alt="High-speed train" className="train-image" /> */}
+              <button className="promo-button">Learn more</button>
             </div>
-            <button className="learn-more-button">Learn more</button>
+            {/* <button className="learn-more-button">Learn more</button> */}
+            <img src="src/assets/train.png" alt="High-speed train" className="train-image" />
           </div>
         </div>
       </div>
