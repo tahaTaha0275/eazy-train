@@ -41,7 +41,7 @@ function App() {
           <Route path="BookedTicket" element={<BookedTicket />} />
         </Route>
 
-        {/* admin – NO nesting, each page is its own route */}
+        {/* admin –NO nesting, each page is its own route */}
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
         <Route path="/AdminDashboard/add-trip" element={<AdminAddTrip />} />
         <Route path="/AdminDashboard/delete-trip" element={<DeleteTrip />} />

@@ -85,6 +85,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       </main>
+
       <AdminDashboardFooter />
     </div>
   );
