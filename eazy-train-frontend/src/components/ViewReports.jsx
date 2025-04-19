@@ -1,6 +1,8 @@
 // src/Pages/ViewReports.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import AdminDashboardHeader from './AdminDashBoardHeader';
+import AdminDashboardFooter from './AdminDashboardFooter';
 import './styles/ViewReports.css';
 
 const ViewReports = () => {
@@ -11,7 +13,10 @@ const ViewReports = () => {
   };
 
   return (
+    <>
+    <AdminDashboardHeader />
     <div className="homepage-container">
+      
       <nav style={{ width: '100%', padding: '1rem', backgroundColor: '#f8f8f8', borderBottom: '1px solid #ccc', display: 'flex', justifyContent: 'center' }}>
         <button className="toggle-btn" onClick={() => navigate('/AdminDashboard')}>Dashboard</button>
       </nav>
@@ -29,7 +34,9 @@ const ViewReports = () => {
           Generate Report
         </button>
       </main>
+      <AdminDashboardFooter />
     </div>
+    </>
   );
 };
 
