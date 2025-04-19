@@ -1,0 +1,14 @@
+@import '../styles/SharedBase.css';
+
+.form-row input {
+  width: auto;
+  padding: 0.25rem 0.5rem;
+}
+
+.search-button {
+    width: 150px;               
+  }
+  
+  .form-row span {
+    margin-right: 2rem;
+  }

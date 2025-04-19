@@ -1,0 +1,13 @@
+@import '../styles/SharedBase.css';
+
+.search-button {
+  max-width: 260px;
+}
+
+.search-button {
+    width: 150px;               
+  }
+  
+  .form-row span {
+    margin-right: 2rem;
+  }

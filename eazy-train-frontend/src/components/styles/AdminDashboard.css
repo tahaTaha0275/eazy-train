@@ -1,0 +1,33 @@
+@import '../styles/SharedBase.css';         
+
+.trip-toggle button {
+  width: 100%;
+}
+.search-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;          
+    align-items: center;    
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: center; 
+  }
+
+
+.search-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dashboard-page .search-button {
+    width: 5000px;  
+  }
