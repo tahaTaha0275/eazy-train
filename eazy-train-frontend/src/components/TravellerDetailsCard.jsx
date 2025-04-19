@@ -3,7 +3,7 @@ import { useState } from "react"
 import "./styles/TravellerDetailsCard.css"
 
 const TravellerDetailsCard = () => {
-  const [travellers, setTravellers] = useState([{ id: 1, name: "Ahmed Adel" }])
+  const [travellers, setTravellers] = useState([{ id: 1, name: "Abdullah Qalalweh" }])
 
   const [formData, setFormData] = useState({
     name: "",

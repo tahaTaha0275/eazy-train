@@ -31,19 +31,30 @@
   .footerLogoText {
     font-weight: 700;
     font-size: 1.25rem;
-    color: black;
+    color: white;
   }
   .footerLogoText span {
-    color: white;
+    color: black;
   }
   .newsletter {
     display: flex;
     gap: 1rem;
+    align-items: center;
+
   }
+  @media (max-width: 768px) {
+    .newsletter {
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+
   .newsletterText{
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
   .newsletterTitle {
@@ -60,37 +71,41 @@
     display: flex;
     width: 100%;
     max-width: 300px;
+    height: 2.5rem;
   }
-  /* .newsletterInput {
+  .newsletterInput {
     padding: 0.625rem 1rem;
-    border-radius: 0.25rem 0 0 0.25rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.1);
+    /* border-radius: 0.25rem 0 0 0.25rem; */
+    border: none;
+    border-bottom: 1px white solid;
+    background-color:transparent;
     color: white;
     width: 100%;
     font-size: 0.875rem;
-  } */
-  /* .newsletterInput::placeholder {
+  }
+  .newsletterInput::placeholder {
     color: rgba(255, 255, 255, 0.6);
   }
   .newsletterInput:focus {
     outline: none;
     border-color: white;
-  } */
-  /* .newsletterButton {
+  }
+  .newsletterButton {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.625rem;
-    background-color: white;
-    color: #0078ff;
+    background-color:#0078ff ;
+    color: white;
     border: none;
-    border-radius: 0 0.25rem 0.25rem 0;
     cursor: pointer;
+    border: none;
+    border-bottom: 1px white solid;
   }
   .newsletterButton:hover {
     background-color: #f0f9ff;
-  } */
+    color: #0078ff;
+  }
   .footerBottom {
     display: flex;
     flex-direction: column;
