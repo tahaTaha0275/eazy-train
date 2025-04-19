@@ -26,14 +26,14 @@
    ```bash
    git clone https://github.com/tahaTaha0275/eazy-train.git
    ```
-
+
 
 2. **Navigate to the project directory:**
 
    ```bash
    cd eazy-train
    ```
-
+
 
 3. **Install dependencies:**
 
@@ -47,7 +47,7 @@
    ```bash
    npm start
    ```
-
+
 
 ## Usage
 
