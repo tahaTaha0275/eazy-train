@@ -33,7 +33,7 @@ EazyTrain is a modern, user-friendly train ticket reservation system designed to
 3. **Run the development server:**
 
    ```bash
-   npm start
+   npm run dev
    ```
    This will start the development server and open the application in your default web browser. The app will automatically reload if you make changes to the source code.
 
