@@ -31,3 +31,6 @@ pids
 
 # Optional test output
 test-output/
+
+# Firebase
+serviceAccountKey.json
