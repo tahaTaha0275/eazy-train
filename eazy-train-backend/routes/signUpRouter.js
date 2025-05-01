@@ -8,7 +8,6 @@ const signUpRouter = Router()
 
 signUpRouter.post('/', (req, res) => {
     const { username, password } = req.body
-    // console.log(users)
     const currentUser = users.find(user => user.username === username )
     if (currentUser ) {
         return res.status(401).json({ message: 'User Already Exists' })
