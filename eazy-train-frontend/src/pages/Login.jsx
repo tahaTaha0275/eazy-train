@@ -31,7 +31,6 @@ const Login = () => {
       } else {
         sessionStorage.setItem('token', token)
       }
-      console.log("paisweubfOLJSWEBGFOUQIEYRBDFOI")
       // Redirect or show success message
       // alert("Login successful!");
       navigate(`/home`)

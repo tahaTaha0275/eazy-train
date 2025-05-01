@@ -15,5 +15,6 @@ app.get("/",(req,res)=> {
 })
 
 app.use('/login',loginRouter)
+app.use('/signup',loginRouter)
 
-app.listen(PORT, () => console.log(`https://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`))
