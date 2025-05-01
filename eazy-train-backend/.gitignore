@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage directories
+coverage/
+
+# IDE settings (optional but helpful)
+.vscode/
+.idea/
+
+# Build output (if you build or transpile)
+dist/
+build/
+
+# PM2 logs
+pids
+*.pid
+*.seed
+
+# Optional test output
+test-output/
+
+# Firebase
+serviceAccountKey.json
