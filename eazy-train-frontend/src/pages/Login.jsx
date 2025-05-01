@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { Eye, EyeOff, User } from "lucide-react"
+import axios from "axios"
+import { useNavigate} from 'react-router-dom';
 import "./Login.css"
 
 const Login = () => {
@@ -8,18 +9,37 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [rememberMe, setRememberMe] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-
-  const handleSubmit = (e) => {
+  
+  const navigate = useNavigate()
+  const handleSubmit = async (e) => {
     e.preventDefault()
     // Handle login logic here
     console.log("Login attempt with:", { email, password, rememberMe })
     // Navigate to home page after successful login
-    // navigate('/');
-  }
+    try {
+      const response = await axios.post('http://localhost:8080/login', {
+        username: email,
+        password: password
+      });
 
-  const handleGoogleLogin = () => {
-    // Handle Google login logic
-    console.log("Google login clicked")
+      const token = response.data.token
+      console.log('Token:', token)
+
+      // You can store the token in localStorage or state
+      if (rememberMe) {
+        localStorage.setItem('token', token)
+      } else {
+        sessionStorage.setItem('token', token)
+      }
+      console.log("paisweubfOLJSWEBGFOUQIEYRBDFOI")
+      // Redirect or show success message
+      // alert("Login successful!");
+      navigate(`/home`)
+    } catch (error) {
+      console.error('Login failed:', error.response?.data?.message || error.message);
+      console.log(error.message)
+      alert("Login failed. Please check your credentials.");
+    }
   }
 
   const handleGuestLogin = () => {
