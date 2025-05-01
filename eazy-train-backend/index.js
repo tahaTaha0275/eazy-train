@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import loginRouter from './routes/loginRouter.js'
+import signUpRouter from './routes/signUpRouter.js'
 import dotenv from 'dotenv';
 
 dotenv.config()
@@ -15,6 +16,6 @@ app.get("/",(req,res)=> {
 })
 
 app.use('/login',loginRouter)
-app.use('/signup',loginRouter)
+app.use('/signup',signUpRouter)
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`))

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Eye, EyeOff, User } from "lucide-react"
 import axios from "axios"
-import { useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import "./Login.css"
 
 const Login = () => {

@@ -7,17 +7,13 @@ import "./Signup.css"
 const Signup = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [rememberMe, setRememberMe] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle login logic here
-    console.log("Login attempt with:", { email, password, rememberMe })
-    // Navigate to home page after successful login
     try {
-      const response = await axios.post('http://localhost:8080/login', {
+      const response = await axios.post('http://localhost:8080/signup', {
         username: email,
         password: password
       });
@@ -25,20 +21,11 @@ const Signup = () => {
       const token = response.data.token
       console.log('Token:', token)
 
-      // You can store the token in localStorage or state
-      if (rememberMe) {
-        localStorage.setItem('token', token)
-      } else {
-        sessionStorage.setItem('token', token)
-      }
-      console.log("paisweubfOLJSWEBGFOUQIEYRBDFOI")
-      // Redirect or show success message
-      // alert("Login successful!");
       navigate(`/home`)
     } catch (error) {
-      console.error('Login failed:', error.response?.data?.message || error.message);
+      console.error('Sign Up failed:', error.response?.data?.message || error.message);
       console.log(error.message)
-      alert("Login failed. Please check your credentials.");
+      alert("Sign Up failed. Please check your credentials.");
     }
   }
 

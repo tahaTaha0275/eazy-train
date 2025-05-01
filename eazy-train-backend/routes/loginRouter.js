@@ -8,7 +8,7 @@ const loginRouter = Router()
 
 loginRouter.post('/', (req, res) => {
     const { username, password } = req.body
-    const currentUser = users.filter(user => user.username === username && user.password === password)
+    const currentUser = users.find(user => user.username === username && user.password === password);
     if (currentUser) {
       const token = jwt.sign({ id: currentUser.id, username: currentUser.username }, SECRET, { expiresIn: '1h' })
       return res.json({ token })
