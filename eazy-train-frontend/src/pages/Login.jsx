@@ -3,6 +3,9 @@ import { Eye, EyeOff, User } from "lucide-react"
 import axios from "axios"
 import {useNavigate} from 'react-router-dom';
 import "./Login.css"
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase"; 
+
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -12,31 +15,28 @@ const Login = () => {
   
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    // Handle login logic here
+    e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/login', {
-        username: email,
-        password: password
-      });
-
-      const token = response.data.token
-      console.log('Token:', token)
-
-      // You can store the token in localStorage or state
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+  
+      const token = await user.getIdToken();
+      console.log("Firebase token:", token);
+  
       if (rememberMe) {
-        localStorage.setItem('token', token)
+        localStorage.setItem("token", token);
       } else {
-        sessionStorage.setItem('token', token)
-        console.log("in session storage")
+        sessionStorage.setItem("token", token);
+        console.log("Token stored in session storage");
       }
-      navigate(`/home`)
+  
+      navigate("/home");
     } catch (error) {
-      console.error('Login failed:', error.response?.data?.message || error.message);
-      console.log(error.message)
-      alert("Login failed. Please check your credentials.");
+      console.error("Login failed:", error.message);
+      alert("Login failed: " + error.message);
     }
-  }
+  };
+  
 
   const handleGuestLogin = () => {
     // Handle guest login logic

@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { Eye, EyeOff, User } from "lucide-react"
-import axios from "axios"
 import { useNavigate} from 'react-router-dom';
 import "./Signup.css"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase"; 
+
 
 const Signup = () => {
   const [email, setEmail] = useState("")
@@ -11,28 +13,18 @@ const Signup = () => {
   
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/signup', {
-        username: email,
-        password: password
-      });
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-      const token = response.data.token
-      console.log('Token:', token)
-
-      navigate(`/home`)
+      console.log("Firebase user created:", user);
+      navigate("/home");
     } catch (error) {
-      console.error('Sign Up failed:', error.response?.data?.message || error.message);
-      console.log(error.message)
-      alert("Sign Up failed. Please check your credentials.");
+      console.error("Sign Up failed:", error.message);
+      alert("Sign Up failed: " + error.message);
     }
-  }
-
-  const handleGuestLogin = () => {
-    // Handle guest login logic
-    console.log("Guest login clicked")
-  }
+  };
 
   return (
     <div className="login-container">
