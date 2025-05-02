@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
+import { app, analytics } from './firebase';  // dont remove ever
 
-import Homepage   from './pages/Homepage';
-import Login      from './pages/Login';
-import Signup      from './pages/Signup';
-import Tickets    from './pages/Tickets';
-import Layout     from './pages/Layout';
-import Review     from './pages/Review';
+
+import Homepage      from './pages/Homepage';
+import Login         from './pages/Login';
+import Signup        from './pages/Signup';
+import Tickets       from './pages/Tickets';
+import Layout        from './pages/Layout';
+import Review        from './pages/Review';
 import PaymentPortal from './components/PaymentPortal';
-import BookedTicket   from './components/BookedTicket';
+import BookedTicket  from './components/BookedTicket';
 
 /* ── Admin pages ─────────────────────────────── */
 import AdminDashboard  from './components/AdminDashboard';
