@@ -54,3 +54,32 @@
     color: #9ca3af;
   }
   
+  .red-button {
+    display: inline-block;
+    background-color: #e53935; 
+    color: white;
+    padding: 3px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 0;
+  }
+  
+  .red-button:hover {
+    background-color: #c62828; 
+  }
+
+  .blue-button {
+    display: inline-block;
+    background-color:#2d8af8 ; 
+    color: white;
+    padding: 3px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 0;
+  }
+  
+  .blue-button:hover {
+    background-color: #1448f1; 
+  }

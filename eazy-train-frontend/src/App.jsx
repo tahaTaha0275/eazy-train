@@ -8,6 +8,7 @@ import Layout     from './pages/Layout';
 import Review     from './pages/Review';
 import PaymentPortal from './components/PaymentPortal';
 import BookedTicket   from './components/BookedTicket';
+import ProtectedRoute from './components/ProtectedRoute';
 
 /* ── Admin pages ─────────────────────────────── */
 import AdminDashboard  from './components/AdminDashboard';
@@ -34,7 +35,11 @@ function App() {
         {/* public */}
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Homepage />} />
+        <Route path="/home" element={
+          <ProtectedRoute>
+            <Homepage />
+          </ProtectedRoute>
+        } />
 
         <Route path="/tickets" element={<Layout />}>
           <Route index element={<Tickets />} />

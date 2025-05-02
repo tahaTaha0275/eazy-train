@@ -12,12 +12,12 @@ export default function Header() {
                     My Booking
                 </Link>
                 <div className={"divider"}></div>
-                <Link href="/login" className={"authLink"}>
-                    Login
+                <Link href="/login" className={"blue-button"}>
+                    Sign in
                 </Link>
                 <span className={"authSeparator"}>/</span>
-                <Link href="/signup" className={"authLink"}>
-                    Sign in
+                <Link href="/signup" className={"red-button"}>
+                    Log out
                 </Link>
                 </div>
             </header>

@@ -30,6 +30,7 @@ const Login = () => {
         localStorage.setItem('token', token)
       } else {
         sessionStorage.setItem('token', token)
+        console.log("in session storage")
       }
       // Redirect or show success message
       // alert("Login successful!");

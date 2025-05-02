@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function Footer(){
+export default function Footer(props){
     return(
         <>
             <footer className={"footer"}>
@@ -61,6 +61,12 @@ export default function Footer(){
                 <Link href="/service" className={"footerLink"}>
                     Customer service
                 </Link>
+                {
+                 props.inHome && <Link href="/" className={"red-button"}>
+                        Log out
+                    </Link>
+
+                }
                 </div>
                 <div className={"socialLinks"}>
                 <Link href="#" aria-label="Facebook" className={"socialLink"}>
