@@ -1,23 +1,42 @@
-import dotenv from 'dotenv'
-import { Router } from 'express'
-import jwt from 'jsonwebtoken'
-import {users} from "../utils/utils.js"
-dotenv.config()
-const SECRET = process.env.JWT_SECRET
-const signUpRouter = Router()
+import dotenv from 'dotenv';
+import { Router } from 'express';
+import jwt from 'jsonwebtoken';
+import { createUser, userExistsByEmail } from '../services/userService.js';
 
-signUpRouter.post('/', (req, res) => {
-    const { username, password } = req.body
-    const currentUser = users.find(user => user.username === username )
-    if (currentUser ) {
-        return res.status(401).json({ message: 'User Already Exists' })
-    } else {
-        users.push({id: users.length + 1, username:username, password: password})
-        const newUser = users[users.length - 1 ]
-        const token = jwt.sign({ id: newUser.id, username:newUser.username, role: "passenger"}, SECRET, { expiresIn: '1h' })
-        return res.json({ token })
+dotenv.config();
+const SECRET = process.env.JWT_SECRET;
+const signUpRouter = Router();
 
+signUpRouter.post('/', async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const exists = await userExistsByEmail(username);
+
+    if (exists) {
+      return res.status(409).json({ message: 'User already exists' });
     }
-})
 
-export default signUpRouter
+    const newUserId = Date.now().toString(); // use UUID in production
+    const newUser = await createUser(newUserId, {
+      name: '',                // Fill in real name if available
+      email: username,
+      password,
+      role: 'passenger'
+    });
+
+    const token = jwt.sign(
+      { id: newUser.id, username: newUser.email, role: newUser.role },
+      SECRET,
+      { expiresIn: '1h' }
+    );
+
+    return res.status(201).json({ token });
+
+  } catch (err) {
+    console.error('Signup error:', err.message);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+export default signUpRouter;
