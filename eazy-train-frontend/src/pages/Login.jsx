@@ -14,8 +14,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     // Handle login logic here
-    console.log("Login attempt with:", { email, password, rememberMe })
-    // Navigate to home page after successful login
     try {
       const response = await axios.post('http://localhost:8080/login', {
         username: email,
@@ -32,8 +30,6 @@ const Login = () => {
         sessionStorage.setItem('token', token)
         console.log("in session storage")
       }
-      // Redirect or show success message
-      // alert("Login successful!");
       navigate(`/home`)
     } catch (error) {
       console.error('Login failed:', error.response?.data?.message || error.message);

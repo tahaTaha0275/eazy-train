@@ -1,6 +1,28 @@
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate } from 'react-router-dom'
+
+function getTokenSource() {
+    if (localStorage.getItem('token')) {
+      return localStorage;
+    } else if (sessionStorage.getItem('token')) {
+      return sessionStorage;
+    } else {
+      return null;
+    }
+  }
+  
 
 export default function Header() {
+    const navigate = useNavigate()
+
+    const handleLogIn = (e) => {
+        
+    }
+
+    const handleLogOut = (e) => {
+        const storage = getTokenSource()
+        storage.removeItem("token")
+        navigate("/")
+    }
     return (
             <header className={"header"}>
                 <Link href="/" className={"logo"}>
@@ -12,11 +34,11 @@ export default function Header() {
                     My Booking
                 </Link>
                 <div className={"divider"}></div>
-                <Link href="/login" className={"blue-button"}>
+                <Link onClick={handleLogIn} className={"blue-button"}>
                     Sign in
                 </Link>
                 <span className={"authSeparator"}>/</span>
-                <Link href="/signup" className={"red-button"}>
+                <Link onClick={handleLogOut} className={"red-button"}>
                     Log out
                 </Link>
                 </div>

@@ -1,6 +1,23 @@
 import { Link } from 'react-router-dom'
 
+function getTokenSource() {
+    if (localStorage.getItem('token')) {
+      return localStorage;
+    } else if (sessionStorage.getItem('token')) {
+      return sessionStorage;
+    } else {
+      return null;
+    }
+  }
+  
 export default function Footer(props){
+
+    const handleLogOut = (e) => {
+        const storage = getTokenSource()
+        storage.removeItem("token")
+        navigate("/")
+    }
+
     return(
         <>
             <footer className={"footer"}>
@@ -62,7 +79,7 @@ export default function Footer(props){
                     Customer service
                 </Link>
                 {
-                 props.inHome && <Link href="/" className={"red-button"}>
+                 props.inHome && <Link onClick={handleLogOut} className={"red-button"}>
                         Log out
                     </Link>
 

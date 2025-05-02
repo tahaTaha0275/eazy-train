@@ -41,7 +41,11 @@ function App() {
           </ProtectedRoute>
         } />
 
-        <Route path="/tickets" element={<Layout />}>
+        <Route path="/tickets" element={
+          <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>  
+        }>
           <Route index element={<Tickets />} />
           <Route path="review" element={<Review />} />
           <Route path="paymentportal" element={<PaymentPortal />} />
