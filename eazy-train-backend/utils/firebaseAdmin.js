@@ -1,22 +1,19 @@
-import admin from "firebase-admin";
-import path from "path";
-import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
+import admin  from "firebase-admin";
+import{ cert } from "firebase-admin/app";
+import { readFile } from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Fix __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load and parse JSON manually
-const serviceAccount = JSON.parse(
-  readFileSync(path.join(__dirname, "../serviceAccountKey.json"), "utf8")
-);
+const serviceAccountPath = path.join(__dirname, '../serviceAccountKey.json');
+const serviceAccount = JSON.parse(await readFile(serviceAccountPath, 'utf-8'));
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://eazytrain-b2a5d.firebaseio.com",
-  });
-}
+// Initialize Firebase Admin SDK
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(), // Use application default credentials
+  databaseURL: "https://your-database-name.firebaseio.com",
+});
 
-export default admin;
+module.exports = admin;  // Export the Firebase Admin instance for use in the backend
