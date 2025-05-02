@@ -20,7 +20,7 @@ const Signup = () => {
 
       const token = response.data.token
       console.log('Token:', token)
-
+      sessionStorage.setItem('token', token)
       navigate(`/home`)
     } catch (error) {
       console.error('Sign Up failed:', error.response?.data?.message || error.message);
