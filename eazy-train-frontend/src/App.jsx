@@ -11,6 +11,7 @@ import PaymentPortal from './components/PaymentPortal';
 import BookedTicket   from './components/BookedTicket';
 import ProtectedRoute from './components/ProtectedRoute';
 import {RoleProtectedRoute} from './components/RoleProtectedRoute';
+import MyBookings from './pages/MyBookings';
 
 
 /* ── Admin pages ─────────────────────────────── */
@@ -52,6 +53,7 @@ function App() {
           <Route index element={<Tickets />} />
           <Route path="review" element={<Review />} />
           <Route path="paymentportal" element={<PaymentPortal />} />
+          <Route path="mybookings" element={<MyBookings />} />
           <Route path="BookedTicket" element={<BookedTicket />} />
         </Route>
 
