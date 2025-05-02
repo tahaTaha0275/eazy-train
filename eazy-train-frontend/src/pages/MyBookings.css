@@ -5,49 +5,22 @@ html,body{
   }
   
   /* CSS FOR Main Pages  */
-  .main {
-    flex: 1;
-    padding-left: 0;
-    padding-right: 0;
+  .mainBookings {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding :1.5rem;
   }
   
-  .contentGrid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  @media (max-width: 800px) {
-    .contentGrid {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .sidebarTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1e70f0;
-  }
-  
-  .trainResults {
+  .myTrains {
     background-color: white;
     border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     padding: 1.5rem;
-    width:80%;
+    width:60%;
   }
   @media (max-width: 640px) {
-    .trainResults{
+    .myTrains{
       margin: 0 auto;
     }
   }
@@ -70,15 +43,3 @@ html,body{
     gap: 0.5rem;
   }
   
-  .trainCount {
-    font-size: 0.875rem;
-    color: #6b7280;
-  }
-  
-  .filterButton {
-    color: #2d8af8;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
