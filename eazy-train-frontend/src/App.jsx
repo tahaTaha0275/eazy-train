@@ -10,6 +10,7 @@ import Layout        from './pages/Layout';
 import Review        from './pages/Review';
 import PaymentPortal from './components/PaymentPortal';
 import BookedTicket   from './components/BookedTicket';
+import ProtectedRoute from './components/ProtectedRoute';
 
 /* ── Admin pages ─────────────────────────────── */
 import AdminDashboard  from './components/AdminDashboard';

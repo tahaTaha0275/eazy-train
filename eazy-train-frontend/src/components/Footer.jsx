@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 function getTokenSource() {
     if (localStorage.getItem('token')) {
@@ -11,6 +11,7 @@ function getTokenSource() {
   }
   
 export default function Footer(props){
+    const navigate = useNavigate()
 
     const handleLogOut = (e) => {
         const storage = getTokenSource()
@@ -79,9 +80,9 @@ export default function Footer(props){
                     Customer service
                 </Link>
                 {
-                 props.inHome && <Link onClick={handleLogOut} className={"red-button"}>
+                 props.inHome && <button onClick={handleLogOut} className={"red-button"}>
                         Log out
-                    </Link>
+                    </button>
 
                 }
                 </div>
