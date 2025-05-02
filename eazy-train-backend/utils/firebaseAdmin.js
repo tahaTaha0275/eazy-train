@@ -1,9 +1,11 @@
-const admin = require("firebase-admin");
-
+import admin  from "firebase-admin";
+import{ cert } from "firebase-admin/app";
 // Initialize Firebase Admin SDK
+import  serviceAccount from "../serviceAccountKey.json" assert { type: "json" };
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(), // Use application default credentials
-  databaseURL: "https://your-database-name.firebaseio.com",
+  credential: cert(serviceAccount), // Use application default credentials
+  databaseURL: "https://eazytrain-b2a5d.firebaseio.com",
 });
 
-module.exports = admin;  // Export the Firebase Admin instance for use in the backend
+export  default admin;  // Export the Firebase Admin instance for use in the backend
+
