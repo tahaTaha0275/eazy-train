@@ -1,6 +1,23 @@
 import { Link } from 'react-router-dom'
 
-export default function Footer(){
+function getTokenSource() {
+    if (localStorage.getItem('token')) {
+      return localStorage;
+    } else if (sessionStorage.getItem('token')) {
+      return sessionStorage;
+    } else {
+      return null;
+    }
+  }
+  
+export default function Footer(props){
+
+    const handleLogOut = (e) => {
+        const storage = getTokenSource()
+        storage.removeItem("token")
+        navigate("/")
+    }
+
     return(
         <>
             <footer className={"footer"}>
@@ -61,6 +78,12 @@ export default function Footer(){
                 <Link href="/service" className={"footerLink"}>
                     Customer service
                 </Link>
+                {
+                 props.inHome && <Link onClick={handleLogOut} className={"red-button"}>
+                        Log out
+                    </Link>
+
+                }
                 </div>
                 <div className={"socialLinks"}>
                 <Link href="#" aria-label="Facebook" className={"socialLink"}>

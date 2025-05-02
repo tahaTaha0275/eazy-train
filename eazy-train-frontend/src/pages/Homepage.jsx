@@ -57,7 +57,7 @@ const Homepage = () => {
           <SearchButton>Search for trains</SearchButton>
         </form>
       </div>
-      <Footer />
+      <Footer  inHome = {true}/>
     </div>
   )
 }
