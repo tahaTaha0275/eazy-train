@@ -38,9 +38,9 @@ export default function Header() {
                     Sign in
                 </Link>
                 <span className={"authSeparator"}>/</span>
-                <Link onClick={handleLogOut} className={"red-button"}>
+                <button onClick={handleLogOut} className={"red-button"}>
                     Log out
-                </Link>
+                </button>
                 </div>
             </header>
         

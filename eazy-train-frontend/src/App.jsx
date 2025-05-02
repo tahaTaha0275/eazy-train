@@ -1,14 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
+import { app, analytics } from './firebase';  // dont remove ever
 
-import Homepage   from './pages/Homepage';
-import Login      from './pages/Login';
-import Signup      from './pages/Signup';
-import Tickets    from './pages/Tickets';
-import Layout     from './pages/Layout';
-import Review     from './pages/Review';
+import Homepage      from './pages/Homepage';
+import Login         from './pages/Login';
+import Signup        from './pages/Signup';
+import Tickets       from './pages/Tickets';
+import Layout        from './pages/Layout';
+import Review        from './pages/Review';
 import PaymentPortal from './components/PaymentPortal';
 import BookedTicket   from './components/BookedTicket';
 import ProtectedRoute from './components/ProtectedRoute';
+import {RoleProtectedRoute} from './components/RoleProtectedRoute';
+
 
 /* ── Admin pages ─────────────────────────────── */
 import AdminDashboard  from './components/AdminDashboard';
@@ -53,12 +56,30 @@ function App() {
         </Route>
 
         {/* admin –NO nesting, each page is its own route */}
-        <Route path="/AdminDashboard" element={<AdminDashboard />} />
-        <Route path="/AdminDashboard/add-trip" element={<AdminAddTrip />} />
-        <Route path="/AdminDashboard/delete-trip" element={<DeleteTrip />} />
-        <Route path="/AdminDashboard/delete-users" element={<DeleteUsers />} />
-        <Route path="/AdminDashboard/manage-operators" element={<ManageOperators />} />
-        <Route path="/AdminDashboard/view-reports" element={<ViewReports />} />
+        <Route path="/AdminDashboard" element={
+          <RoleProtectedRoute requiredRole = {"admin"}>
+            <AdminDashboard />
+          </RoleProtectedRoute>} />
+        <Route path="/AdminDashboard/add-trip" element={
+          <RoleProtectedRoute requiredRole = {"admin"}>
+            <AdminAddTrip />
+          </RoleProtectedRoute>} />
+        <Route path="/AdminDashboard/delete-trip" element={
+          <RoleProtectedRoute requiredRole = {"admin"}>
+            <DeleteTrip />
+          </RoleProtectedRoute>} />
+        <Route path="/AdminDashboard/delete-users" element={
+          <RoleProtectedRoute requiredRole = {"admin"}>
+            <DeleteUsers />
+          </RoleProtectedRoute>} />
+        <Route path="/AdminDashboard/manage-operators" element={
+          <RoleProtectedRoute requiredRole = {"admin"}>
+            <ManageOperators />
+          </RoleProtectedRoute>} />
+        <Route path="/AdminDashboard/view-reports" element={
+          <RoleProtectedRoute requiredRole = {"admin"}>
+            <ViewReports />
+          </RoleProtectedRoute>} />
       </Routes>
     </div>
   );

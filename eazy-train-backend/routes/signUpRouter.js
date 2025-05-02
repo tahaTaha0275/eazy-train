@@ -14,8 +14,7 @@ signUpRouter.post('/', (req, res) => {
     } else {
         users.push({id: users.length + 1, username:username, password: password})
         const newUser = users[users.length - 1 ]
-        const token = jwt.sign({ id: newUser.id, username:newUser.username }, SECRET, { expiresIn: '1h' })
-        sessionStorage.setItem('token', token)
+        const token = jwt.sign({ id: newUser.id, username:newUser.username, role: "passenger"}, SECRET, { expiresIn: '1h' })
         return res.json({ token })
 
     }
