@@ -1,7 +1,7 @@
 // src/Pages/ViewReports.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import AdminDashboardHeader from './AdminDashBoardHeader';
+import AdminDashboardHeader from './AdminDashboardHeader';
 import AdminDashboardFooter from './AdminDashboardFooter';
 import './styles/ViewReports.css';
 
