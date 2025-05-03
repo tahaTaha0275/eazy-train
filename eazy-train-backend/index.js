@@ -8,7 +8,6 @@ import tripsRouter from './routes/tripsRouter.js'
 import myBookingsRouter from './routes/myBookingsRouter.js'
 import adminRouter from './routes/createAdminRouter.js'
 import userUpdateRouter from './routes/updateUserRouter.js'
-import bookingsRouter from './routes/bookingsRouter.js';
 
 
 // initialize firebase admin SDK
@@ -36,7 +35,6 @@ app.use('/admin',adminRouter)
 app.use('/trains', trainRouter)
 app.use('/trips', tripsRouter)
 app.use('/myBookings', myBookingsRouter)
-app.use('/bookings', bookingsRouter)
 app.use('/update', userUpdateRouter)
 
 

@@ -56,7 +56,7 @@ const MyBookingsList = () => {
         localStorage.getItem('token') ??
         sessionStorage.getItem('token');
 
-      await axios.delete(`http://localhost:8080/bookings/${bookingId}`, {
+      await axios.delete(`http://localhost:8080/myBookings/${bookingId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -95,7 +95,7 @@ const MyBookingsList = () => {
               </div>
 
               <div className="travel-info">
-                <p>Train ID: {booking.trainId}</p>
+                <p>Trip ID: {booking.tripId}</p>
                 <p>Seat: {booking.seatId}</p>
                 <p>Booked: {new Date(booking.bookedAt).toLocaleDateString()}</p>
               </div>
