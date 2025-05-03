@@ -1,5 +1,6 @@
 // routes/trains.js
 import express from 'express';
+import { Router } from 'express';
 const router = Router();
 // const { createTrain, getTrainById } = require('../services/trainService');
 import { createTrain, getTrainById ,getTrainsByRouteAndDate } from '../services/trainService.js'; 
