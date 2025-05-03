@@ -62,6 +62,8 @@ export default function BoardingDetails({
 
         {/* Arrival */}
         <div className="arrival-info">
+        <div className="location-label">{train.arriveStation}</div>
+
           <div className="time-label">
             {train ? train.arrivalTime : "3:25 am"}
           </div>

@@ -43,3 +43,52 @@ export async function getBookingsByUserId(userId) {
 
   return bookings;
 }
+
+/**
+ * Creates a new booking in Firestore.
+ *
+ * @param {Object} bookingData - Data for the new booking.
+ * @param {string} bookingData.name - Name of the passenger.
+ * @param {string} bookingData.contact - Passenger's contact number.
+ * @param {string} bookingData.tripId - Trip document ID (not the full path).
+ * @param {string} bookingData.userId - ID of the user making the booking.
+ * @param {number} bookingData.amount - Amount paid.
+ * @param {string} bookingData.method - Payment method (e.g., 'mada', 'visa').
+ *
+ * @returns {Promise<Object>} The newly created booking document with ID.
+ */
+export async function createBooking({
+  name,
+  contact,
+  tripId,
+  userId,
+  amount,
+  method
+}) {
+  if (!name || !contact || !tripId ||  !userId || !amount || !method) {
+    throw new Error("Missing required booking fields.");
+  }
+
+  const now = admin.firestore.FieldValue.serverTimestamp();
+
+  const data = {
+    bookedAt: now,
+    updatedAt: now,
+    userId: userId,
+    tripId: `/trips/${tripId}`,
+    status: 'confirmed',
+    passengerInfo: {
+      name,
+      contact
+    },
+    payment: {
+      amount: Number(amount),
+      method,
+      paidAt: now
+    }
+  };
+
+  const newBookingRef = await db.collection('bookings').add(data);
+  return { id: newBookingRef.id, ...data };
+}
+

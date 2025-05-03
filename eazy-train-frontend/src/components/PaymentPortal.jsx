@@ -16,8 +16,8 @@ const PaymentPortal = () => {
         if (tripId) {
           try {
             const response = await axios.get(`http://localhost:8080/trips/${tripId}`);
-            console.log(response)
             if (response?.data) {
+              console.log("Trip data:", response.data);
               setSelectedTrip(response.data);
             }
           } catch (error) {
@@ -42,11 +42,11 @@ const PaymentPortal = () => {
             {selectedTrip && <BookingDetails train = {selectedTrip}/>}
           </div>
           <div className="right-column">
-            <BillDetails train = {selectedTrip} ticketType={ticketType}/>
+            {selectedTrip && <BillDetails train = {selectedTrip} ticketType={ticketType}/>}
           </div>
         </div>
 
-        <PaymentMethods />
+        {selectedTrip && <PaymentMethods tripId = {selectedTrip.id} ticketType={ticketType} />}
       </main>
 
     </div>

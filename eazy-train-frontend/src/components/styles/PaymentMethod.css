@@ -1,6 +1,7 @@
 .payment-method {
   max-width: 650px;
-  padding: 2 rem;
+  padding: 2rem;
+  margin-top: 0.26rem;
 }
 
 .payment-method-title {

@@ -7,7 +7,7 @@ import trainRouter from './routes/trainRouter.js'
 import tripsRouter from './routes/tripsRouter.js'
 import myBookingsRouter from './routes/myBookingsRouter.js'
 import adminRouter from './routes/createAdminRouter.js'
-import userUpdateRouter from './routes/updateUserRouter.js'
+import userRouter from './routes/userRouter.js'
 
 
 // initialize firebase admin SDK
@@ -35,7 +35,7 @@ app.use('/admin',adminRouter)
 app.use('/trains', trainRouter)
 app.use('/trips', tripsRouter)
 app.use('/myBookings', myBookingsRouter)
-app.use('/update', userUpdateRouter)
+app.use('/user', userRouter)
 
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`))

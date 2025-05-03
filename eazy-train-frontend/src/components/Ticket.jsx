@@ -27,7 +27,7 @@ const Ticket = () => {
 
         {/* Journey line with trip duration above it */}
         <div className="line-container">
-          <div className="trip-duration">Trip Duration: 16 hours</div>
+          <div className="trip-duration">Trip Duration: 4 hours</div>
           <div className="line"></div>
         </div>
 

@@ -127,10 +127,24 @@ async function updateTripAvailability(tripId, availableSeats) {
   const updatedDoc = await tripRef.get();
   return { id: updatedDoc.id, ...updatedDoc.data() };
 }
+
+async function getUserPhoneById(userId) {
+  const userRef = db.collection('users').doc(userId);
+  const userDoc = await userRef.get();
+
+  if (!userDoc.exists) {
+    throw new Error('User not found');
+  }
+
+  const data = userDoc.data();
+  return data.phone || null;
+}
+
 export {
   createUser,
   getUserById,
   userExistsByEmail,
   findUserByEmailAndPassword,
-  updateUserById
+  updateUserById,
+  getUserPhoneById
 };
