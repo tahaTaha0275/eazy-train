@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { Calendar, Filter, Download, PieChart as PieChartIcon, BarChartIcon, TableIcon, RefreshCcw } from 'lucide-react';
-import AdminDashboardHeader from './AdminDashBoardHeader';
+import AdminDashboardHeader from './AdminDashboardHeader';
 import AdminDashboardFooter from './AdminDashboardFooter';
 import './styles/ViewReports.css';
 import axios from 'axios';

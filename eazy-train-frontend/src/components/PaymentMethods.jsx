@@ -27,16 +27,16 @@ const PaymentMethods = ({tripId,ticketType}) => {
       const price = ticketType === "business" ? 220 : 120;
   
       // Get user phone from backend
-      // const phoneResponse = await axios.get(`http://localhost:8080/user/phone/${userId}`, {
+      // const phoneResponse = await axios.get(`${import.meta.env.VITE_BASE_URI}/user/phone/${userId}`, {
       //   headers: {
       //     Authorization: `Bearer ${token}`
       //   }
       // });
-      const userData = await axios.get(`http://localhost:8080/user/${userId}`);
+      const userData = await axios.get(`${import.meta.env.VITE_BASE_URI}/user/${userId}`);
       console.log(userData.data)
    
       // Send booking request with token in headers
-      const response = await axios.post("http://localhost:8080/myBookings", {
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URI}/myBookings`, {
         name: userData.data.name,
         contact: userData.data.phone,
         tripId: tripId,

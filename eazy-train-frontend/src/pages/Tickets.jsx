@@ -14,7 +14,7 @@ export default function Tickets(){
   useEffect(()  => {
     const func = async() => {
     try {
-        const oneWayTrip = await axios.get(`http://localhost:8080/tripsa/search`,{
+        const oneWayTrip = await axios.get(`${import.meta.env.VITE_BASE_URI}/tripsa/search`,{
           params: {
             depStation: from,
             arrivStation: to,

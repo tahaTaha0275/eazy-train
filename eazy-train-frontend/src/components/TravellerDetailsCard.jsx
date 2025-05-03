@@ -29,7 +29,7 @@ const TravellerDetailsCard = () => {
     console.log("Traveller Data:", data);
     
     try {
-      const response = await axios.put(`http://localhost:8080/user/${userId}`, data);
+      const response = await axios.put(`${import.meta.env.VITE_BASE_URI}/user/${userId}`, data);
       console.log('✅ PUT successful:', response.data);
     } catch (error) {
       console.error('❌ PUT failed:', error.message);
