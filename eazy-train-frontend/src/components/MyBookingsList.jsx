@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './styles/MyTicketsList.css';
+import './styles/MyBookingsList.css';
 
-const MyTicketsList = () => {
+const MyBookingsList = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState(null);
@@ -44,19 +44,19 @@ const MyTicketsList = () => {
   if (error)   return <div className="error">{error}</div>;
 
   return (
-    <div className="tickets-container">
+    <div className="bookings-container">
       {bookings.length === 0 ? (
-        <div className="no-tickets">No tickets found</div>
+        <div className="no-bookings">No bookings found</div>
       ) : (
         bookings.map((booking) => (
-          <div key={booking.bookingId} className="ticket-card">
-            <div className="ticket-header">
+          <div key={booking.bookingId} className="booking-card">
+            <div className="booking-header">
               <h3>Booking #{booking.bookingId.slice(0, 8)}</h3>
               <span className={`status ${booking.status}`}>
                 {booking.status}
               </span>
             </div>
-            <div className="ticket-details">
+            <div className="booking-details">
               <div className="passenger-info">
                 <p>Passenger: {booking.passengerInfo?.name || 'N/A'}</p>
                 <p>Contact:   {booking.passengerInfo?.contact || 'N/A'}</p>
@@ -78,4 +78,4 @@ const MyTicketsList = () => {
   );
 };
 
-export default MyTicketsList;
+export default MyBookingsList;
