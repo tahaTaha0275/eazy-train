@@ -57,7 +57,7 @@ export default function Review() {
 
           <div className={"rightColumn"}>
             <BoardingDetails train={selectedTrip} ticketType={ticketType} />
-            <BillDetails train={selectedTrip} ticketType={ticketType} />
+            <BillDetails  train={selectedTrip} ticketType={ticketType} />
 
             <div className={"checkoutSection"}>
               <p className={"disclaimer"}>
@@ -72,7 +72,7 @@ export default function Review() {
                 policies
               </p>
 
-              <button className={"bookNowButton"} onClick={() => navigate('/tickets/paymentportal')}>Book Now</button>
+              <button className={"bookNowButton"} onClick={() => navigate(`/tickets/paymentportal?tripId=${tripId}?ticketType=${ticketType}`)}>Book Now</button>
 
             </div>
           </div>

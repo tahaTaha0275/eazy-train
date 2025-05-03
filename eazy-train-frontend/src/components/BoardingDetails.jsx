@@ -5,19 +5,9 @@ import {jwtDecode} from 'jwt-decode';
 export default function BoardingDetails({
   train,
   ticketType = 'economy',
-  traveler = {
-    name: '',
-    age: '',
-    gender: '',
-    berth: '',
-    email: '',
-    isPrimary: true,
-  },
   quota = 'Tatkal Quota',
 }) {
-
-  
-
+  // console.log(train)
   const token = localStorage.getItem('token') || sessionStorage.getItem('token');
   let username = ""
   if (token) {
@@ -86,21 +76,11 @@ export default function BoardingDetails({
       {/* Traveller Details */}
       <div className="traveller-details">
         <h3>Traveller Details</h3>
-        <div className="traveller-row">
-          <strong>{traveler.name}</strong>
-          <span>{traveler.age}</span>
-          <span>{traveler.gender}</span>
-          <span>{traveler.berth}</span>
-        </div>
-
         <div className="eticket-info">
           <div className="eticket-label">
             <p><strong>E-Tickets will be sent to: {`${username}`}</strong></p>
           </div>
-          <div className="eticket-destination">
-            
-            <p>{traveler.email}</p>
-          </div>
+         
         </div>
       </div>
     </div>
