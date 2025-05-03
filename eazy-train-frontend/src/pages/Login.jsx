@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault()
     // Handle login logic here
     try {
-      const response = await axios.post('http://localhost:8080/login', {
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URI}/login`, {
         username: email,
         password: password
       });

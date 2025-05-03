@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PlusCircle, Trash2, Users, UserX, BarChart2, LogOut } from 'lucide-react';
 import './styles/AdminDashboard.css';
-import AdminDashboardHeader from './AdminDashBoardHeader';
+import AdminDashboardHeader from './AdminDashboardHeader';
 import AdminDashboardFooter from './AdminDashboardFooter';
 
 const AdminDashboard = () => {

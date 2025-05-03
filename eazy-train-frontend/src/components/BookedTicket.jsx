@@ -19,7 +19,7 @@ const BookedTicket = () => {
       const fetchTrip = async () => {
         if (tripId) {
           try {
-            const response = await axios.get(`http://localhost:8080/tripsa/${tripId}`);
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URI}/tripsa/${tripId}`);
             if (response?.data) {
               console.log("Trip data:", response.data);
               setSelectedTrip(response.data);
@@ -37,7 +37,7 @@ const BookedTicket = () => {
       const fetchUser = async () => {
         if (userId) {
           try {
-            const response = await axios.get(`http://localhost:8080/user/${userId}`);
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URI}/user/${userId}`);
             if (response?.data) {
               console.log("User data:", response.data);
               setSelectedUser(response.data);
