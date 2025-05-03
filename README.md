@@ -39,6 +39,131 @@ EazyTrain is a modern, user-friendly train ticket reservation system designed to
 
 Make sure Node.js and npm are installed on your machine. You can download them from [Node.js official website](https://nodejs.org/).
 
+I'll help integrate the train router endpoints into the API documentation. Here's the updated section for the Trains endpoints in the README:
+
+# 🚄 EazyTrain API Documentation
+
+[Previous sections remain unchanged...]
+
+### 🚂 Trains
+
+#### Search Trains
+```
+GET /trains/search
+```
+**Query Parameters:**
+- `depStation` (required): Departure station
+- `arrivStation` (required): Arrival station
+- `departureDate` (required): Date in YYYY-MM-DD format
+
+**Response:**
+```json
+[
+  {
+    "id": "string",
+    "name": "string",
+    "code": "string",
+    "availableSeats": "number",
+    "totalSeats": "number",
+    "status": "string",
+    "depStation": "string",
+    "arrivStation": "string",
+    "depTime": "string",
+    "departureDate": "string"
+  }
+]
+```
+**Error Response:**
+```json
+{
+  "message": "Missing query parameters."
+}
+```
+**Status Codes:**
+- `200`: Success
+- `400`: Missing parameters
+- `500`: Server error
+
+#### Get Train by ID
+```
+GET /trains/:trainId
+```
+**Parameters:**
+- `trainId`: Train identifier
+
+**Response:**
+```json
+{
+  "id": "string",
+  "name": "string",
+  "code": "string",
+  "availableSeats": "number",
+  "totalSeats": "number",
+  "status": "string",
+  "depStation": "string",
+  "arrivStation": "string",
+  "depTime": "string",
+  "departureDate": "string"
+}
+```
+**Error Response:**
+```json
+{
+  "message": "Train not found"
+}
+```
+**Status Codes:**
+- `200`: Success
+- `404`: Train not found
+
+#### Create Train
+```
+POST /trains
+```
+**Request Body:**
+```json
+{
+  "name": "string",
+  "code": "string",
+  "availableSeats": "number",
+  "totalSeats": "number",
+  "status": "string",
+  "depStation": "string",
+  "arrivStation": "string",
+  "depTime": "string",
+  "departureDate": "string"
+}
+```
+**Response:**
+```json
+{
+  "message": "Train created",
+  "train": {
+    "id": "string",
+    "name": "string",
+    "code": "string",
+    "availableSeats": "number",
+    "totalSeats": "number",
+    "status": "string",
+    "depStation": "string",
+    "arrivStation": "string",
+    "depTime": "string",
+    "departureDate": "string"
+  }
+}
+```
+**Error Response:**
+```json
+{
+  "message": "Error message details"
+}
+```
+**Status Codes:**
+- `201`: Train created successfully
+- `400`: Invalid request body
+
+[Remaining sections of the README remain unchanged...]
+
 👥 Contributors
 -   Mohammed Rashad Ali
 -   Ahmad Taha
