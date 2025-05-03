@@ -61,26 +61,11 @@ export default function Footer(props){
             </div>
             <div className={"footerBottom"}>
                 <div className={"footerLinks"}>
-                <Link href="/about" className={"footerLink"}>
-                    About us
-                </Link>
-                <Link href="/mobile" className={"footerLink"}>
-                    Mobile
-                </Link>
-                <Link href="/privacy" className={"footerLink"}>
-                    Privacy
-                </Link>
-                <Link href="/terms" className={"footerLink"}>
-                    Terms of use
-                </Link>
-                <Link href="/career" className={"footerLink"}>
-                    Career
-                </Link>
-                <Link href="/service" className={"footerLink"}>
-                    Customer service
-                </Link>
                 <Link to="/tickets" className={"footerLink"}>
                     Tickets
+                </Link>
+                <Link to="/AdminDashboard" className={"footerLink"}>
+                    Admin Dashboard
                 </Link>
                 {
                  props.inHome && <button onClick={handleLogOut} className={"red-button"}>
