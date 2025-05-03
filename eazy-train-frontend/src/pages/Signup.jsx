@@ -33,6 +33,10 @@ const Signup = () => {
     // Handle guest login logic
     console.log("Guest login clicked")
   }
+  const handleSignInRedirect = (e) => {
+    e.preventDefault()
+    navigate('/')
+  }
 
   return (
     <div className="login-container">
@@ -73,6 +77,15 @@ const Signup = () => {
             <button type="submit" className="sign-in-button">
               Sign up
             </button>
+
+            <div className="divider">
+              <span>OR</span>
+            </div>
+
+            <button type="button" className="signup-button" onClick={handleSignInRedirect}>
+              <User size={20} />
+              Sign in
+            </button>
             
           </form>
         </div>
@@ -94,7 +107,6 @@ const Signup = () => {
                 Ride, Relax.
               </p>
               {/* <img src="src/assets/train.png" alt="High-speed train" className="train-image" /> */}
-              <button className="promo-button">Learn more</button>
             </div>
             {/* <button className="learn-more-button">Learn more</button> */}
             <img src="src/assets/train.png" alt="High-speed train" className="train-image" />

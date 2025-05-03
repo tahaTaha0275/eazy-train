@@ -38,23 +38,9 @@ const Login = () => {
     }
   }
 
-  const handleGuestLogin = async () => {
+  const handleSignUpRedirect = (e) => {
     e.preventDefault()
-    // Handle login logic here
-    try {
-      const response = await axios.post('http://localhost:8080/guest');
-
-      const token = response.data.token
-      console.log('Token:', token)
-
-      // You can store the token in localStorage or state
-      sessionStorage.setItem('token', token)
-      navigate(`/home`)
-    } catch (error) {
-      console.error('Login failed:', error.response?.data?.message || error.message);
-      console.log(error.message)
-      alert("Login failed. Please check your credentials.");
-    }
+    navigate('/signup')
   }
 
   return (
@@ -113,9 +99,9 @@ const Login = () => {
               <span>OR</span>
             </div>
 
-            <button type="button" className="guest-button" onClick={handleGuestLogin}>
+            <button type="button" className="signup-button" onClick={handleSignUpRedirect}>
               <User size={20} />
-              Continue as a guest
+              Sign up
             </button>
           </form>
         </div>
@@ -137,7 +123,6 @@ const Login = () => {
                 Ride, Relax.
               </p>
               {/* <img src="src/assets/train.png" alt="High-speed train" className="train-image" /> */}
-              <button className="promo-button">Learn more</button>
             </div>
             {/* <button className="learn-more-button">Learn more</button> */}
             <img src="src/assets/train.png" alt="High-speed train" className="train-image" />
