@@ -1,45 +1,155 @@
-html,body{
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  /* CSS FOR Main Pages  */
-  .mainBookings {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding :1.5rem;
-  }
-  
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.mainBookings {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+  min-height: calc(100vh - 200px); /* Adjust based on your footer height */
+}
+
+.myTrains {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.resultsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eef2f7;
+}
+
+.resultsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Booking Card Styles */
+.booking-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.booking-detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.cancelled {
+  background-color: #ffe5e5;
+  color: #cf1322;
+}
+
+/* Cancel Button */
+.cancel-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.cancel-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .myTrains {
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-    padding: 1.5rem;
-    width:60%;
+      width: 95%;
+      padding: 1.5rem;
   }
-  @media (max-width: 640px) {
-    .myTrains{
-      margin: 0 auto;
-    }
+  
+  .booking-details-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mainBookings {
+      padding: 1rem;
+  }
+
+  .myTrains {
+      width: 100%;
+      padding: 1rem;
   }
 
   .resultsHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
   }
-  
+
+  .booking-details-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
   .resultsTitle {
-    font-size: 1.25rem;
-    font-weight: 700;
+      font-size: 1.25rem;
   }
-  
-  .resultsInfo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+
+  .booking-detail-group {
+      padding: 0.5rem;
   }
-  
+}
+
+/* Remove space under footer */
+footer {
+  margin-top: auto;
+  width: 100%;
+}
