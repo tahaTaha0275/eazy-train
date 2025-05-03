@@ -3,7 +3,7 @@
 import express from 'express';
 import { Router } from 'express'
 // const { createTrain, getTrainById } = require('../services/trainService');
-import { createTrain, getTrainById } from '../services/trainService.js'; 
+import { createTrain, getTrainById ,getTrainsByRouteAndDate } from '../services/trainService.js'; 
 
 const router = Router()
 // Create a train
@@ -16,7 +16,22 @@ router.post('/', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+router.get('/search', async (req, res) => {
+  const { depStation, arrivStation, departureDate } = req.query;
 
+  if (!depStation || !arrivStation || !departureDate) {
+    return res.status(400).json({ message: 'Missing query parameters.' });
+  }
+
+  try {
+    const trains = await getTrainsByRouteAndDate(depStation, arrivStation, departureDate);
+    console.log(trains)
+    res.status(200).json(trains);
+  } catch (error) {
+    console.error('Search error:', error.message);
+    res.status(500).json({ message: 'Failed to retrieve trains.' });
+  }
+});
 // Get a train by ID
 router.get('/:trainId', async (req, res) => {
   try {
@@ -27,5 +42,8 @@ router.get('/:trainId', async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 });
+
+
+
 
 export default router;

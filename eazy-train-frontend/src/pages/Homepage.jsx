@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 import Title from "../components/Title"
 import TripToggle from "../components/TripToggle"
 import SearchInput from "../components/SearchInput"
@@ -6,23 +7,17 @@ import DateInput from "../components/DateInput"
 import SearchButton from "../components/SearchButton"
 import Footer from "../components/Footer"
 import "./Homepage.css"
+import { useNavigate } from "react-router-dom"
 
 const Homepage = () => {
-  const [tripType, setTripType] = useState("roundTrip")
   const [from, setFrom] = useState("")
   const [to, setTo] = useState("")
   const [departureDate, setDepartureDate] = useState("")
-  const [returnDate, setReturnDate] = useState("")
-
-  const handleSearch = (e) => {
+  const navigate = useNavigate()
+  const handleSearch = async (e) => {
     e.preventDefault()
-    console.log("Search for trains with:", {
-      tripType,
-      from,
-      to,
-      departureDate,
-      returnDate,
-    })
+    // console.log({from,to,departureDate})
+    navigate(`/tickets?from=${from}&to=${to}&departureDate=${departureDate}`)
     // Navigate to search results or tickets page
   }
 
@@ -31,7 +26,6 @@ const Homepage = () => {
       <Title />
 
       <div className="search-container">
-        <TripToggle tripType={tripType} setTripType={setTripType} />
 
         <form onSubmit={handleSearch} className="search-form">
           <div className="home-row">
@@ -44,13 +38,6 @@ const Homepage = () => {
               placeholder="Departure Date"
               value={departureDate}
               onChange={(e) => setDepartureDate(e.target.value)}
-              />
-            <DateInput
-              placeholder="Return Date"
-              value={returnDate}
-              onChange={(e) => setReturnDate(e.target.value)}
-              required={tripType === "roundTrip"}
-              disabled={tripType === "oneWay"}
               />
           </div>
 

@@ -1,41 +1,53 @@
-import { TrainList } from "../components/TrainList"
+import { TripList } from "../components/TripList"
 import { SearchForm } from "../components/SearchForm"
 import { DateSelector } from "../components/DateSelector"
 import "./Tickets.css"
+import { useEffect,useState } from "react"
+import { useSearchParams } from "react-router-dom"
+import axios from "axios"
 
 export default function Tickets(){
+  const  [searchParams,setSearchParams] = useSearchParams()
+  const [trips,setTrips] = useState()
+  const {from,to,departureDate } = {from:searchParams.get("from"),to:searchParams.get("to"),departureDate:searchParams.get("departureDate") }
+  // console.log(searchParams.get("from"))
+  useEffect(()  => {
+    const func = async() => {
+    try {
+        const oneWayTrip = await axios.get(`http://localhost:8080/trips/search`,{
+          params: {
+            depStation: from,
+            arrivStation: to,
+            departureDate: departureDate
+          }
+        })
+        setTrips(oneWayTrip.data)
+       console.log(oneWayTrip)
+    }
+    catch(error){
+      console.log(error.message)
+    }
+    }
+    func()
+  },[])
+  
   return (
     <main className={"main"} style={{ paddingLeft: 0, paddingRight: 0 }}>
         <div className={"contentGrid"}>
           <div className={"sidebar"}>
             <h1 className={"sidebarTitle"}>Your Search Results</h1>
-            <SearchForm />
+            <SearchForm from = {from} to = {to} />
             <DateSelector />
           </div>
 
           <div className={"trainResults"}>
             <div className={"resultsHeader"}>
-              <h2 className={"resultsTitle"}>Available Trains</h2>
+              <h2 className={"resultsTitle"}>Available Trips</h2>
               <div className={"resultsInfo"}>
-                <span className={"trainCount"}>3 trains available</span>
-                <button className={"filterButton"}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-                  </svg>
-                </button>
+                <span className={"trainCount"}>{trips ? `${trips.length } trips available`:"0 trips available"}</span>
               </div>
             </div>
-            <TrainList />
+            {trips && <TripList  tripData = {trips}/>}
           </div>
         </div>
       </main>
