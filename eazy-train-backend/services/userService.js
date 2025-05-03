@@ -99,35 +99,6 @@ async function updateUserById(userId, updates) {
   return { id: userId, ...updatedDoc.data() };
 }
 
-/**
- * Updates the available seats for a given trip by its ID.
- *
- * @param {string} tripId - The Firestore document ID of the trip.
- * @param {number} availableSeats - The new available seats value.
- * @returns {Promise<Object>} The updated trip document.
- * @throws {Error} If the trip doesn't exist or the update fails.
- */
-async function updateTripAvailability(tripId, availableSeats) {
-  if (typeof availableSeats !== 'number' || availableSeats < 0) {
-    throw new Error('Invalid seat count. Must be a non-negative number.');
-  }
-
-  const tripRef = db.collection('trips').doc(tripId);
-  const tripDoc = await tripRef.get();
-
-  if (!tripDoc.exists) {
-    throw new Error('Trip not found.');
-  }
-
-  await tripRef.update({
-    availableSeats,
-    updatedAt: admin.firestore.FieldValue.serverTimestamp()
-  });
-
-  const updatedDoc = await tripRef.get();
-  return { id: updatedDoc.id, ...updatedDoc.data() };
-}
-
 async function getUserPhoneById(userId) {
   const userRef = db.collection('users').doc(userId);
   const userDoc = await userRef.get();
