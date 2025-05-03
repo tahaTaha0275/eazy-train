@@ -20,7 +20,7 @@ export default function Review() {
     const fetchTrip = async () => {
       if (tripId) {
         try {
-          const response = await axios.get(`http://localhost:8080/tripsa/${tripId}`);
+          const response = await axios.get(`${import.meta.env.VITE_BASE_URI}/tripsa/${tripId}`);
           if (response?.data) {
             setSelectedTrip(response.data);
           }

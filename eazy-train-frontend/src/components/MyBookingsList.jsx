@@ -23,7 +23,7 @@ const MyBookingsList = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8080/myBookings', {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URI}/myBookings`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setBookings(response.data);
@@ -56,7 +56,7 @@ const MyBookingsList = () => {
         localStorage.getItem('token') ??
         sessionStorage.getItem('token');
 
-      await axios.delete(`http://localhost:8080/myBookings/${bookingId}`, {
+      await axios.delete(`${import.meta.env.VITE_BASE_URI}/myBookings/${bookingId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
