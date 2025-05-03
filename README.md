@@ -43,8 +43,6 @@ I'll help integrate the train router endpoints into the API documentation. Here'
 
 # 🚄 EazyTrain API Documentation
 
-[Previous sections remain unchanged...]
-
 ### 🚂 Trains
 
 #### Search Trains
