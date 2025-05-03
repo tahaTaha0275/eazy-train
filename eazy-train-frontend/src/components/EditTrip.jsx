@@ -152,7 +152,7 @@ const EditTrip = () => {
                     </div>
                   </div>
                   <button
-                    className="edit-button"
+                    className="trip-edit-button"
                     onClick={() => confirmEdit(trip)}
                   >
                     <Edit size={18} />
