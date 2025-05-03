@@ -1,5 +1,6 @@
 import express from 'express';
 import { Router } from 'express';
+
 import { 
   deleteTrain, 
   getAllTrips, 
@@ -7,7 +8,8 @@ import {
   getAllTripsDetailed,
   getTripsByDateRange,
   getPopularRoutes,
-  getBookingStats
+  getBookingStats,
+  createTrip
 } from '../services/tripService.js';
 
 const router = Router();
@@ -77,6 +79,48 @@ router.get('/booking-stats', async (req, res) => {
     console.error('Error fetching booking statistics:', error);
     res.status(500).json({ message: 'Error fetching booking statistics' });
   }
+});
+
+function isValidDate(dateStr) {
+  const d = new Date(dateStr);
+  return !isNaN(d.getTime());
+}
+
+
+router.post('/', async (req, res) => {
+  const {
+      arriveStation,
+      availableSeats,
+      code,
+      depStation,
+      depTime,
+      departureDate,
+      name,
+      status,
+      totalSeats
+    } = req.body;
+    console.log("Request body:", req.body);
+    // Basic validation
+  
+  
+    try {
+      const trip = await createTrip({
+          arriveStation,
+          availableSeats,
+          code,
+          depStation,
+          depTime,
+          departureDate,
+          name,
+          status,
+          totalSeats
+      });
+  
+      res.status(201).json({ message: 'Trip created', trip });
+    } catch (error) {
+      console.error('Create trip failed:', error.message);
+      res.status(500).json({ message: 'Internal server error' });
+    }
 });
 
 // Delete a trip by ID

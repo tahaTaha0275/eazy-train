@@ -11,8 +11,6 @@ import adminRouter from './routes/createAdminRouter.js'
 import tripRouter from './routes/tripRouter.js'
 import userRouter from './routes/userRouter.js'
 
-
-import tripRouter from './routes/tripRouter.js'
 import operatorRouter from './routes/operatorRoutes.js'
 
 // initialize firebase admin SDK

@@ -3,6 +3,7 @@ import admin from "firebase-admin";
 import path from "path";
 import { readFile } from "fs/promises";
 import { fileURLToPath } from "url";
+import { cert } from "firebase-admin/app"; // Import the cert function from firebase-admin/app
 
 // Fix __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
