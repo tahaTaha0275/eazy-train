@@ -53,6 +53,8 @@ async function createTrain(trainData) {
   return { id: newTrainRef.id, ...data };
 }
 
+
+
 /**
  * Retrieves a train document by its ID.
  *
@@ -79,7 +81,6 @@ async function getTrainById(trainId) {
 async function getTrainsByRouteAndDate(depStation, arrivStation, departureDate) {
   const snapshot = await db.collection('trains').get();
   const trains = [];
-
   const dep = depStation.trim().toLowerCase();
   const arr = arrivStation.trim().toLowerCase();
   const date = departureDate.trim();

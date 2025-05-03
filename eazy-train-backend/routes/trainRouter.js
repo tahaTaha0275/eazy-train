@@ -1,11 +1,9 @@
 // routes/trains.js
-// const express = require('express');
 import express from 'express';
-import { Router } from 'express'
+const router = Router();
 // const { createTrain, getTrainById } = require('../services/trainService');
 import { createTrain, getTrainById ,getTrainsByRouteAndDate } from '../services/trainService.js'; 
 
-const router = Router()
 // Create a train
 router.post('/', async (req, res) => {
   try {
@@ -42,7 +40,6 @@ router.get('/:trainId', async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 });
-
 
 
 
