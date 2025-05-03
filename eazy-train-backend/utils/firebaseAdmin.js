@@ -17,5 +17,7 @@ admin.initializeApp({
   databaseURL: "https://eazytrain-b2a5d.firebaseio.com",
 });
 
-export  default admin;  // Export the Firebase Admin instance for use in the backend
+const db = admin.firestore();
+
+export default admin;  // Export the Firebase Admin instance for use in the backend
 
