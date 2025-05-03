@@ -160,7 +160,6 @@ POST /trains
 - `201`: Train created successfully
 - `400`: Invalid request body
 
-[Remaining sections of the README remain unchanged...]
 
 👥 Contributors
 -   Mohammed Rashad Ali
