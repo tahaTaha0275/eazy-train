@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Trash2, ArrowRight, AlertTriangle } from 'lucide-react';
 import AdminDashboardHeader from '../components/AdminDashboardHeader';
@@ -10,24 +10,40 @@ const DeleteTrip = () => {
   const [search, setSearch] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [tripToDelete, setTripToDelete] = useState(null);
-  const [trips, setTrips] = useState([
-    { id: 'TR1001', from: 'Riyadh', to: 'Dammam' },
-    { id: 'TR1002', from: 'Makkah', to: 'Medina' },
-    { id: 'TR1003', from: 'Jeddah', to: 'Medina' },
-    { id: 'TR1004', from: 'Makkah', to: 'Jeddah' },
-    { id: 'TR1005', from: 'Rabegh', to: 'Medina' }
-  ]);
+  const [trips, setTrips] = useState([]);
+
+  // Fetch trips from the backend API
+  const fetchTrips = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/trips'); // Your backend API endpoint
+      const data = await response.json();
+      setTrips(data);
+    } catch (error) {
+      console.error('Error fetching trips:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTrips(); // Fetch trips on component mount
+  }, []);
 
   const confirmDelete = (trip) => {
     setTripToDelete(trip);
     setShowConfirmation(true);
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (tripToDelete) {
-      setTrips(trips.filter(trip => trip.id !== tripToDelete.id));
-      setShowConfirmation(false);
-      setTripToDelete(null);
+      try {
+        await fetch(`http://localhost:8080/trips/${tripToDelete.id}`, {
+          method: 'DELETE',
+        });
+        setTrips(trips.filter(trip => trip.id !== tripToDelete.id));
+        setShowConfirmation(false);
+        setTripToDelete(null);
+      } catch (error) {
+        console.error('Error deleting trip:', error);
+      }
     }
   };
 
@@ -36,16 +52,16 @@ const DeleteTrip = () => {
     setTripToDelete(null);
   };
 
-  const filteredTrips = trips.filter(t => 
-    t.id.toLowerCase().includes(search.toLowerCase()) || 
-    t.from.toLowerCase().includes(search.toLowerCase()) || 
+  const filteredTrips = trips.filter(t =>
+    t.id.toLowerCase().includes(search.toLowerCase()) ||
+    t.from.toLowerCase().includes(search.toLowerCase()) ||
     t.to.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="delete-trip-page">
       <AdminDashboardHeader />
-      
+
       <nav className="admin-navigation">
         <button className="dashboard-button" onClick={() => navigate('/AdminDashboard')}>
           Back to Dashboard
@@ -66,11 +82,11 @@ const DeleteTrip = () => {
           <div className="search-container">
             <div className="search-input-wrapper">
               <Search size={20} className="search-icon" />
-              <input 
-                className="search-input" 
-                placeholder="Search by Trip ID, From, or To" 
-                value={search} 
-                onChange={(e) => setSearch(e.target.value)} 
+              <input
+                className="search-input"
+                placeholder="Search by Trip ID, From, or To"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
             </div>
           </div>
@@ -80,15 +96,15 @@ const DeleteTrip = () => {
               filteredTrips.map(trip => (
                 <div key={trip.id} className="trip-item">
                   <div className="trip-info">
-                    <div className="trip-id">{trip.id}</div>
+                    <div className="trip-id">{trip.id}</div> {/* Display trip ID */}
                     <div className="trip-route">
-                      <span className="trip-from">{trip.from}</span>
+                      <span className="trip-from">{trip.from}</span> {/* Display departure station */}
                       <ArrowRight size={16} className="route-arrow" />
-                      <span className="trip-to">{trip.to}</span>
+                      <span className="trip-to">{trip.to}</span> {/* Display arrival station */}
                     </div>
                   </div>
-                  <button 
-                    className="delete-button" 
+                  <button
+                    className="delete-button"
                     onClick={() => confirmDelete(trip)}
                   >
                     <Trash2 size={18} />
@@ -114,9 +130,9 @@ const DeleteTrip = () => {
             </div>
             <p>Are you sure you want to delete this trip?</p>
             <div className="trip-details">
-              <p><strong>Trip ID:</strong> {tripToDelete.id}</p>
+              <p><strong>Trip ID:</strong> {tripToDelete.id}</p> {/* Show Trip ID */}
               <p><strong>Route:</strong> {tripToDelete.from} to {tripToDelete.to}</p>
-            </div>
+              </div>
             <p className="warning-text">This action cannot be undone!</p>
             <div className="confirmation-actions">
               <button className="cancel-button" onClick={cancelDelete}>Cancel</button>
@@ -127,7 +143,6 @@ const DeleteTrip = () => {
       )}
 
       <AdminDashboardFooter />
-
     </div>
   );
 };

@@ -211,8 +211,7 @@
 }
 
 .edit-button {
-  background-color: #eff6ff;
-  color: #3b82f6;
+  
 }
 
 .edit-button:hover {
@@ -402,7 +401,7 @@
 }
 
 .confirm-button {
-  background-color: #4c51bf;
+  background-color: green;
   color: white;
   border: none;
   border-radius: 6px;
