@@ -16,7 +16,7 @@ const PaymentMethods = ({tripId,ticketType}) => {
   const handleMethodChange = (e) => {
     setSelectedMethod(e.target.value);
   };
-
+  console.log(ticketType)
   // Redirect user when they press the pay button.
   const handlePayClick = async () => {
     try {

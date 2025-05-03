@@ -72,7 +72,7 @@ export default function Review() {
                 policies
               </p>
 
-              <button className={"bookNowButton"} onClick={() => navigate(`/tickets/paymentportal?tripId=${tripId}?ticketType=${ticketType}`)}>Book Now</button>
+              <button className={"bookNowButton"} onClick={() => navigate(`/tickets/paymentportal?tripId=${tripId}&ticketType=${ticketType}`)}>Book Now</button>
 
             </div>
           </div>

@@ -37,7 +37,7 @@ export default function Tickets(){
           <div className={"sidebar"}>
             <h1 className={"sidebarTitle"}>Your Search Results</h1>
             <SearchForm from = {from} to = {to} />
-            <DateSelector />
+            {/* <DateSelector /> */}
           </div>
 
           <div className={"trainResults"}>

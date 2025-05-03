@@ -10,6 +10,8 @@ const PaymentPortal = () => {
   const [searchParams] = useSearchParams();
   const tripId = searchParams.get("tripId");
   const ticketType = searchParams.get("ticketType");
+  console.log(ticketType)
+  console.log(searchParams)
   const [selectedTrip,setSelectedTrip] = useState();
   useEffect(() => {
       const fetchTrip = async () => {
