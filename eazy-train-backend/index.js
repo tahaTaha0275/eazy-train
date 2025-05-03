@@ -4,8 +4,11 @@ import loginRouter from './routes/loginRouter.js'
 import signUpRouter from './routes/signUpRouter.js'
 import dotenv from 'dotenv';
 import trainRouter from './routes/trainRouter.js'
+import tripsRouter from './routes/tripsRouter.js'
 import myBookingsRouter from './routes/myBookingsRouter.js'
 import adminRouter from './routes/createAdminRouter.js'
+import userUpdateRouter from './routes/updateUserRouter.js'
+
 
 // initialize firebase admin SDK
 // import './utils/firebaseAdmin.js'
@@ -30,6 +33,9 @@ app.use('/login',loginRouter)
 app.use('/signup',signUpRouter)
 app.use('/admin',adminRouter)
 app.use('/trains', trainRouter)
+app.use('/trips', tripsRouter)
 app.use('/myBookings', myBookingsRouter)
+app.use('/update', userUpdateRouter)
+
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`))
