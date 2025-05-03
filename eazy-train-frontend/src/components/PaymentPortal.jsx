@@ -17,7 +17,7 @@ const PaymentPortal = () => {
       const fetchTrip = async () => {
         if (tripId) {
           try {
-            const response = await axios.get(`http://localhost:8080/trips/${tripId}`);
+            const response = await axios.get(`http://localhost:8080/tripsa/${tripId}`);
             if (response?.data) {
               console.log("Trip data:", response.data);
               setSelectedTrip(response.data);

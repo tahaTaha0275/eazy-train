@@ -34,7 +34,8 @@ app.use('/signup',signUpRouter)
 app.use('/admin',adminRouter)
 app.use('/trips', tripRouter)
 app.use('/trains', trainRouter)
-app.use('/trips', tripsRouter)
+// Ahmad Trips
+app.use('/tripsa', tripsRouter)
 app.use('/myBookings', myBookingsRouter)
 app.use('/user', userRouter)
 
