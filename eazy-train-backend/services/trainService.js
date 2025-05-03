@@ -53,6 +53,8 @@ async function createTrain(trainData) {
   return { id: newTrainRef.id, ...data };
 }
 
+
+
 /**
  * Retrieves a train document by its ID.
  *
@@ -62,6 +64,8 @@ async function createTrain(trainData) {
  * @throws {Error} If the document doesn't exist or Firestore read fails.
  */
 
+
+
 async function getTrainById(trainId) {
   const doc = await db.collection('trains').doc(trainId).get();
   if (!doc.exists) {
@@ -70,9 +74,11 @@ async function getTrainById(trainId) {
   return { id: doc.id, ...doc.data() };
 }
 
+
 export  {
   createTrain,
-  getTrainById
+  getTrainById,
+  
 };
 
 
