@@ -22,7 +22,7 @@ const EditTrip = () => {
   const fetchTrips = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/trips'); // Your backend API endpoint
+      const response = await fetch(`${import.meta.env.VITE_BASE_URI}/trips`); // Your backend API endpoint
       const data = await response.json();
       setTrips(data);
     } catch (error) {
@@ -65,7 +65,7 @@ const EditTrip = () => {
   const handleUpdate = async () => {
     if (tripToEdit) {
       try {
-        await fetch(`http://localhost:8080/trips/${tripToEdit.id}`, {
+        await fetch(`${import.meta.env.VITE_BASE_URI}/trips/${tripToEdit.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ const DeleteTrip = () => {
   // Fetch trips from the backend API
   const fetchTrips = async () => {
     try {
-      const response = await fetch('http://localhost:8080/trips'); // Your backend API endpoint
+      const response = await fetch(`${import.meta.env.VITE_BASE_URI}/trips`); // Your backend API endpoint
       const data = await response.json();
       setTrips(data);
     } catch (error) {
@@ -35,7 +35,7 @@ const DeleteTrip = () => {
   const handleDelete = async () => {
     if (tripToDelete) {
       try {
-        await fetch(`http://localhost:8080/trips/${tripToDelete.id}`, {
+        await fetch(`${import.meta.env.VITE_BASE_URI}/trips/${tripToDelete.id}`, {
           method: 'DELETE',
         });
         setTrips(trips.filter(trip => trip.id !== tripToDelete.id));

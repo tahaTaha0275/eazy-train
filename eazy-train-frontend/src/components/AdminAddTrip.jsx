@@ -13,7 +13,7 @@ const AdminAddTrip = () => {
   // Placeholder: you'll implement this later
   const fetchOperators = async () => {
     try {
-      const response = await fetch('http://localhost:8080/operators');
+      const response = await fetch(`${import.meta.env.VITE_BASE_URI}/operators`);
       const data = await response.json();
       setOperators(data);
     } catch (err) {

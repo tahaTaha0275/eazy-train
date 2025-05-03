@@ -31,7 +31,7 @@ const ManageOperators = () => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const fetchOperators = async () => {
     try {
-      const response = await fetch('http://localhost:8080/operators');
+      const response = await fetch(`${import.meta.env.VITE_BASE_URI}/operators`);
       const data = await response.json();
       console.log('Fetched operators:', data);
       setOperators(data);
@@ -69,7 +69,7 @@ const ManageOperators = () => {
       const updatedData = { ...editedOperator };
       if (!updatedData.password) delete updatedData.password;
   
-      const response = await fetch(`http://localhost:8080/operators/${editedOperator.id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URI}/operators/${editedOperator.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedData)
@@ -103,7 +103,7 @@ const ManageOperators = () => {
   const handleDelete = async () => {
     if (operatorToDelete) {
       try {
-        const response = await fetch(`http://localhost:8080/operators/${operatorToDelete.id}`, {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URI}/operators/${operatorToDelete.id}`, {
           method: 'DELETE'
         });
         
@@ -141,7 +141,7 @@ const ManageOperators = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:8080/operators', {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URI}/operators`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(operator)

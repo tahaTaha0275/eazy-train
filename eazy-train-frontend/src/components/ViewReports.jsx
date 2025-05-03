@@ -8,7 +8,7 @@ import AdminDashboardFooter from './AdminDashboardFooter';
 import './styles/ViewReports.css';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = `${import.meta.env.VITE_BASE_URI}`;
 
 const ViewReports = () => {
   const navigate = useNavigate();
