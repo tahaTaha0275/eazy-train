@@ -1,19 +1,19 @@
 import React from 'react';
 import './styles/BoardingDetails.css';
+import {jwtDecode} from 'jwt-decode';
 
 export default function BoardingDetails({
   train,
   ticketType = 'economy',
-  traveler = {
-    name: 'Abdullah AlQalalweh',
-    age: '24 Yrs',
-    gender: 'Male',
-    berth: 'Lower Berth',
-    email: 'abduu-30-04@hotmail.com',
-    isPrimary: true,
-  },
   quota = 'Tatkal Quota',
 }) {
+  // console.log(train)
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+  let username = ""
+  if (token) {
+    const decoded = jwtDecode(token);
+    username = decoded.username;
+  }
   return (
     <div className="boarding-details-container">
       
@@ -28,10 +28,10 @@ export default function BoardingDetails({
       {/* Station Name / ID */}
       <div className="station-info">
         <div className="station-name">
-          {train
-            ? `${train.id || '124'}30 - ${train.station || 'Riyadh Railway Station'}`
-            : "12430 - Riyadh Railway Station"
-          }
+          {train && `${train.id }`}
+        </div>
+        <div className="station-name">
+          {train && `${train.depStation + '  Railway Station'}`}
         </div>
       </div>
 
@@ -39,13 +39,12 @@ export default function BoardingDetails({
       <div className="journey-info">
         {/* Departure */}
         <div className="departure-info">
-          <div className="date-label">Nov 16</div>
+          <div className="location-label">{train.depStation}</div>
+
           <div className="time-label">
-            {train ? train.departureTime : "11:25 pm"}
+            {train && train.departureTime }
           </div>
-          <div className="location-label">
-            {train ? train.origin : "Riyadh, Saudi Arabia"}
-          </div>
+          
         </div>
 
         {/* Duration */}
@@ -55,18 +54,21 @@ export default function BoardingDetails({
             <div className="duration-dot"></div>
           </div>
           <div className="duration-label">
-            {train ? train.duration : "4 hours"}
+            {"4 hours"}
           </div>
+          <div className="date-label">{train.departureDate}</div>
+
         </div>
 
         {/* Arrival */}
         <div className="arrival-info">
-          <div className="date-label">Nov 17</div>
+        <div className="location-label">{train.arriveStation}</div>
+
           <div className="time-label">
             {train ? train.arrivalTime : "3:25 am"}
           </div>
           <div className="location-label">
-            {train ? train.destination : "Dammam, Saudi Arabia"}
+            {train ? train.arrivStation : "Dammam, Saudi Arabia"}
           </div>
         </div>
       </div>
@@ -76,21 +78,11 @@ export default function BoardingDetails({
       {/* Traveller Details */}
       <div className="traveller-details">
         <h3>Traveller Details</h3>
-        <div className="traveller-row">
-          <strong>{traveler.name}</strong>
-          <span>{traveler.age}</span>
-          <span>{traveler.gender}</span>
-          <span>{traveler.berth}</span>
-        </div>
-
         <div className="eticket-info">
           <div className="eticket-label">
-            <p><strong>E-Tickets will be sent to:</strong></p>
+            <p><strong>E-Tickets will be sent to: {`${username}`}</strong></p>
           </div>
-          <div className="eticket-destination">
-            
-            <p>{traveler.email}</p>
-          </div>
+         
         </div>
       </div>
     </div>

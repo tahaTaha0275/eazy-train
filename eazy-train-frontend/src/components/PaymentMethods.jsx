@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 import './styles/PaymentMethod.css';
-
-const PaymentMethods = () => {
+import axios from "axios"
+const PaymentMethods = ({tripId,ticketType}) => {
   const [selectedMethod, setSelectedMethod] = useState('');
   const navigate = useNavigate();
 
@@ -15,11 +16,47 @@ const PaymentMethods = () => {
   const handleMethodChange = (e) => {
     setSelectedMethod(e.target.value);
   };
-
+  console.log(ticketType)
   // Redirect user when they press the pay button.
-  const handlePayClick = () => {
-    navigate('/tickets/bookedticket'); 
+  const handlePayClick = async () => {
+    try {
+      const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+      const decoded = jwtDecode(token);
+      const userId = decoded.id;
+      const name = decoded.username;
+      const price = ticketType === "business" ? 220 : 120;
+  
+      // Get user phone from backend
+      // const phoneResponse = await axios.get(`http://localhost:8080/user/phone/${userId}`, {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`
+      //   }
+      // });
+      const userData = await axios.get(`http://localhost:8080/user/${userId}`);
+      console.log(userData.data)
+   
+      // Send booking request with token in headers
+      const response = await axios.post("http://localhost:8080/myBookings", {
+        name: userData.data.name,
+        contact: userData.data.phone,
+        tripId: tripId,
+        userId: userId,
+        amount: price,
+        method: selectedMethod
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      
+      console.log("✅ Booking response:", response.data);
+      navigate(`/tickets/bookedticket?name=${name}&tripId=${tripId}&ticketType=${ticketType}&userId=${userId}`);
+    } catch (error) {
+      console.error("❌ Booking failed:", error.message);
+    }
   };
+  
+  
 
   return (
     <div className="payment-method">

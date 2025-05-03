@@ -79,6 +79,9 @@ export default function Footer(props){
                 <Link href="/service" className={"footerLink"}>
                     Customer service
                 </Link>
+                <Link to="/tickets" className={"footerLink"}>
+                    Tickets
+                </Link>
                 {
                  props.inHome && <button onClick={handleLogOut} className={"red-button"}>
                         Log out

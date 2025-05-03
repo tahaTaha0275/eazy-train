@@ -3,29 +3,38 @@ import { useNavigate } from 'react-router-dom';
 import { Link, useSearchParams } from 'react-router-dom';  
 import BoardingDetails from '../components/BoardingDetails';
 import BillDetails from '../components/BillDetails';
-import {trainData} from '../lib/utils' 
 import TravellerDetailsCard from '../components/TravellerDetailsCard';
 import PassengerContact from '../components/PassengerContact';
+import axios from "axios"
 import "./Review.css"
 
 export default function Review() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const trainId = searchParams.get("trainId");
+  const tripId = searchParams.get("tripId");
   const ticketType = searchParams.get("ticketType");
 
-  const [selectedTrain, setSelectedTrain] = useState(null);
+  const [selectedTrip, setSelectedTrip] = useState(null);
 
   useEffect(() => {
-    if (trainId) {
-      const train = trainData.find((t) => t.id.toString() === trainId);
-      if (train) {
-        setSelectedTrain(train);
+    const fetchTrip = async () => {
+      if (tripId) {
+        try {
+          const response = await axios.get(`http://localhost:8080/trips/${tripId}`);
+          if (response?.data) {
+            setSelectedTrip(response.data);
+          }
+        } catch (error) {
+          console.error("Error fetching trip:", error.message);
+        }
       }
-    }
-  }, [trainId]);
+    };
+  
+    fetchTrip();
+  }, [tripId]);
+  
 
-  if (!selectedTrain) {
+  if (!selectedTrip) {
     return (
       <div className={"review-container"}>
         <main className={"main"} style={{ paddingLeft: 0, paddingRight: 0 }}>
@@ -47,8 +56,8 @@ export default function Review() {
           </div>
 
           <div className={"rightColumn"}>
-            <BoardingDetails train={selectedTrain} ticketType={ticketType} />
-            <BillDetails train={selectedTrain} ticketType={ticketType} />
+            <BoardingDetails train={selectedTrip} ticketType={ticketType} />
+            <BillDetails  train={selectedTrip} ticketType={ticketType} />
 
             <div className={"checkoutSection"}>
               <p className={"disclaimer"}>
@@ -63,11 +72,8 @@ export default function Review() {
                 policies
               </p>
 
-              <button className={"bookNowButton"} onClick={() => navigate('/tickets/paymentportal')}>Book Now</button>
+              <button className={"bookNowButton"} onClick={() => navigate(`/tickets/paymentportal?tripId=${tripId}&ticketType=${ticketType}`)}>Book Now</button>
 
-              <Link to="/checkout" className={"checkoutLink"}>
-                Checkout
-              </Link>
             </div>
           </div>
         </div>

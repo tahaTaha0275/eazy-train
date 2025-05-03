@@ -1,4 +1,4 @@
-import MyTicketsList  from "../components/MyTicketsList"
+import MyBookingsList  from "../components/MyBookingsList"
 import "./MyBookings.css"
 
 export default function MyBookings(){
@@ -6,9 +6,9 @@ export default function MyBookings(){
     <main className={"mainBookings"} style={{ paddingLeft: 0, paddingRight: 0 }}>
           <div className={"myTrains"}>
             <div className={"resultsHeader"}>
-              <h2 className={"resultsTitle"}>Your Tickets</h2>
+              <h2 className={"resultsTitle"}>Your Bookings</h2>
             </div>
-            <MyTicketsList />
+            <MyBookingsList />
           </div>
       </main>
   )

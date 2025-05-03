@@ -1,51 +1,39 @@
 import React from 'react';
 import './styles/Ticket.css';
 
-const Ticket = () => {
+const Ticket = ({ depStation, arriveStation, name, username, departureTime ,ticket}) => {
   return (
     <div className="ticket-section">
-      {/* Header: PNR + Transaction ID */}
-      <div className="ticket-header">
-        <span className="pnr-no">PNR NO: 0456417679</span>
-        <span className="transaction-id">Transaction ID: 032442606578</span>
-      </div>
-
-
-
       {/* Train Station Info */}
-      <h2 className="train-station">12430 - Riyadh Railway Station</h2>
+      <h2 className="train-station">{`${depStation} - ${arriveStation} Railway Station`}</h2>
 
       {/* Journey Info: Departure + line + Arrival */}
       <div className="journey-info">
         <div className="journey-block departure">
           <div className="date-time">
-            <span className="date-label">Nov 16 </span>
-            <span className="time-label">11:25 pm</span>
+            <span className="date-label">{departureTime}</span>
           </div>
-          <div className="location">Riyadh, Saudi Arabia</div>
+          <div className="location">{depStation}</div>
         </div>
 
         {/* Journey line with trip duration above it */}
         <div className="line-container">
-          <div className="trip-duration">Trip Duration: 16 hours</div>
+          <div className="trip-duration">Trip Duration: 4 hours</div>
           <div className="line"></div>
         </div>
 
         <div className="journey-block arrival">
           <div className="date-time">
-            <span className="date-label">Nov 17 </span>
-            <span className="time-label">3:25 pm</span>
+            <span className="date-label">{departureTime}</span>
           </div>
-          <div className="location">Dammam, Saudi Arabia</div>
-          <p></p>
-          
+          <div className="location">{arriveStation}</div>
         </div>
       </div>
 
       <p className="eticket-info">
         E-Tickets have been sent to:<br />
         <p></p>
-        abduu-30-04@gmail.com
+        {username}
       </p>
 
       {/* Traveler Details */}
@@ -53,14 +41,12 @@ const Ticket = () => {
         <h3>Traveller Details</h3>
         <div className="traveller-info-container">
           <div className="personal-info">
-            <strong>Name:</strong> Abdullah AlQalalweh<br />
-            <strong>Age:</strong> 24 yrs<br />
-            <strong>Gender:</strong> Male
+            <strong>Name:</strong> {name}<br />
+
           </div>
           <div className="booking-info">
             <strong>Booking Status:</strong> Confirmed (CNF)<br />
-            <strong>Seat/Coach No:</strong> 44 (Lower berth)<br />
-            <strong>Total Fare:</strong> 120.00 SAR
+            <strong>Total Fare:</strong> {ticket == "business" ? 220 : 120.00 }SAR
           </div>
         </div>
       </div>

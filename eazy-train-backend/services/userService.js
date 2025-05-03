@@ -11,20 +11,11 @@ const VALID_ROLES = ['passenger', 'operator', 'admin'];
 
 /**
  * Creates a new user in Firestore.
- *
- * @param {Object} userData - The data for the new user.
- * @param {string} userData.name - Name of the user.
- * @param {string} userData.email - Email address.
- * @param {string} userData.password - User's password.
- * @param {string} userData.role - User role: "passenger", "operator", or "admin".
- *
- * @returns {Promise<Object>} The newly created user document with its ID.
- * @throws {Error} If validation fails or Firestore write fails.
  */
 async function createUser(userId, userData) {
   const { name, email, password, role } = userData;
 
-  if (!userId|| !email || !password || !role) {
+  if (!userId || !email || !password || !role) {
     throw new Error('Missing required user fields.');
   }
 
@@ -47,10 +38,6 @@ async function createUser(userId, userData) {
 
 /**
  * Retrieves a user by document ID.
- *
- * @param {string} userId - The Firestore document ID of the user.
- * @returns {Promise<Object>} The user document data.
- * @throws {Error} If the user doesn't exist.
  */
 async function getUserById(userId) {
   const doc = await db.collection('users').doc(userId).get();
@@ -63,10 +50,7 @@ async function getUserById(userId) {
 }
 
 /**
- * Checks if a user exists by username (email).
- *
- * @param {string} email - The email of the user to check.
- * @returns {Promise<boolean>} True if user exists, false otherwise.
+ * Checks if a user exists by email.
  */
 async function userExistsByEmail(email) {
   const querySnapshot = await db.collection('users').where('email', '==', email).limit(1).get();
@@ -74,11 +58,7 @@ async function userExistsByEmail(email) {
 }
 
 /**
- * Checks if a user exists by email and password.
- *
- * @param {string} email - User's email.
- * @param {string} password - User's password.
- * @returns {Promise<Object|null>} The user object if found, null otherwise.
+ * Finds user by email and password.
  */
 async function findUserByEmailAndPassword(email, password) {
   const querySnapshot = await db.collection('users')
@@ -95,4 +75,47 @@ async function findUserByEmailAndPassword(email, password) {
   return { id: doc.id, ...doc.data() };
 }
 
-export { createUser, getUserById, userExistsByEmail, findUserByEmailAndPassword };
+/**
+ * Updates a user document by ID.
+ */
+async function updateUserById(userId, updates) {
+  const userRef = db.collection('users').doc(userId);
+  const userDoc = await userRef.get();
+
+  if (!userDoc.exists) {
+    throw new Error('User not found.');
+  }
+
+  const allowedFields = ['name', 'email', 'password', 'role', 'nationalID', 'nationality', 'age', 'gender', 'phone'];
+  const filteredUpdates = Object.fromEntries(
+    Object.entries(updates).filter(([key]) => allowedFields.includes(key))
+  );
+
+  filteredUpdates.updatedAt = admin.firestore.FieldValue.serverTimestamp();
+
+  await userRef.update(filteredUpdates);
+
+  const updatedDoc = await userRef.get();
+  return { id: userId, ...updatedDoc.data() };
+}
+
+async function getUserPhoneById(userId) {
+  const userRef = db.collection('users').doc(userId);
+  const userDoc = await userRef.get();
+
+  if (!userDoc.exists) {
+    throw new Error('User not found');
+  }
+
+  const data = userDoc.data();
+  return data.phone || null;
+}
+
+export {
+  createUser,
+  getUserById,
+  userExistsByEmail,
+  findUserByEmailAndPassword,
+  updateUserById,
+  getUserPhoneById
+};
