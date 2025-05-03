@@ -50,7 +50,7 @@ export default function BillDetails({ train, ticketType }) {
       </div>
 
       <div className={"actionItem"}>
-        <button className={"cancel-button"} type="button" onClick={() => navigate("/")}>
+        <button className={"cancel-button"} type="button" onClick={() => navigate("/home")}>
           Cancel
         </button>
       </div>

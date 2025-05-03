@@ -1,15 +1,17 @@
+// src/components/MyBookingsList.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles/MyBookingsList.css';
 
 const MyBookingsList = () => {
-  const [bookings, setBookings] = useState([]);
-  const [loading, setLoading]   = useState(true);
-  const [error, setError]       = useState(null);
+  const [bookings, setBookings]     = useState([]);
+  const [loading, setLoading]       = useState(true);
+  const [error, setError]           = useState(null);
+  const [cancelling, setCancelling] = useState(false);
 
   useEffect(() => {
     const fetchBookings = async () => {
-      // look in both storages for your JWT
       const token =
         localStorage.getItem('token') ??
         sessionStorage.getItem('token');
@@ -43,6 +45,35 @@ const MyBookingsList = () => {
   if (loading) return <div>Loading...</div>;
   if (error)   return <div className="error">{error}</div>;
 
+  const handleCancel = async (bookingId) => {
+    if (!window.confirm('Are you sure you want to cancel this booking?')) {
+      return;
+    }
+
+    try {
+      setCancelling(true);
+      const token =
+        localStorage.getItem('token') ??
+        sessionStorage.getItem('token');
+
+      await axios.delete(`http://localhost:8080/bookings/${bookingId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      // Update local state to reflect cancellation
+      setBookings(bookings.map(booking =>
+        booking.bookingId === bookingId
+          ? { ...booking, status: 'cancelled' }
+          : booking
+      ));
+    } catch (err) {
+      console.error('Error cancelling booking:', err);
+      alert('Failed to cancel booking. Please try again.');
+    } finally {
+      setCancelling(false);
+    }
+  };
+
   return (
     <div className="bookings-container">
       {bookings.length === 0 ? (
@@ -51,25 +82,36 @@ const MyBookingsList = () => {
         bookings.map((booking) => (
           <div key={booking.bookingId} className="booking-card">
             <div className="booking-header">
-              <h3>Booking #{booking.bookingId.slice(0, 8)}</h3>
+              <h3>Booking #{booking.bookingId}</h3>
               <span className={`status ${booking.status}`}>
                 {booking.status}
               </span>
             </div>
+
             <div className="booking-details">
               <div className="passenger-info">
                 <p>Passenger: {booking.passengerInfo?.name || 'N/A'}</p>
-                <p>Contact:   {booking.passengerInfo?.contact || 'N/A'}</p>
+                <p>Contact: {booking.passengerInfo?.contact || 'N/A'}</p>
               </div>
+
               <div className="travel-info">
                 <p>Train ID: {booking.trainId}</p>
-                <p>Seat:     {booking.seatId}</p>
-                <p>Booked:   {new Date(booking.bookedAt).toLocaleDateString()}</p>
+                <p>Seat: {booking.seatId}</p>
+                <p>Booked: {new Date(booking.bookedAt).toLocaleDateString()}</p>
               </div>
+
               <div className="payment-info">
                 <p>Amount: SAR {booking.payment.amount}</p>
                 <p>Method: {booking.payment.method}</p>
               </div>
+
+              <button
+                className="cancelBooking-button"
+                onClick={() => handleCancel(booking.bookingId)}
+                disabled={booking.status !== 'confirmed' || cancelling}
+              >
+                {cancelling ? 'Cancelling...' : 'Cancel'}
+              </button>
             </div>
           </div>
         ))

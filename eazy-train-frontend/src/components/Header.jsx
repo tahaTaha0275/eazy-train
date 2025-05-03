@@ -33,9 +33,6 @@ export default function Header() {
       </Link>
 
       <div className="headerLinks">
-        <Link to="/tickets/mybookings" className="bookingLink">
-          Tickets
-        </Link>
         <div className="divider" />
         <Link to="/tickets/mybookings" className="bookingLink">
           My Booking
