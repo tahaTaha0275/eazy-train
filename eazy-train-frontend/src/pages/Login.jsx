@@ -38,9 +38,23 @@ const Login = () => {
     }
   }
 
-  const handleGuestLogin = () => {
-    // Handle guest login logic
-    console.log("Guest login clicked")
+  const handleGuestLogin = async () => {
+    e.preventDefault()
+    // Handle login logic here
+    try {
+      const response = await axios.post('http://localhost:8080/guest');
+
+      const token = response.data.token
+      console.log('Token:', token)
+
+      // You can store the token in localStorage or state
+      sessionStorage.setItem('token', token)
+      navigate(`/home`)
+    } catch (error) {
+      console.error('Login failed:', error.response?.data?.message || error.message);
+      console.log(error.message)
+      alert("Login failed. Please check your credentials.");
+    }
   }
 
   return (

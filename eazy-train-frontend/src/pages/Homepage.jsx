@@ -36,7 +36,7 @@ const Homepage = () => {
         <form onSubmit={handleSearch} className="search-form">
           <div className="home-row">
             <SearchInput placeholder="From" value={from} onChange={(e) => setFrom(e.target.value)} />
-            <SearchInput placeholder="TO" value={to} onChange={(e) => setTo(e.target.value)} />
+            <SearchInput placeholder="To" value={to} onChange={(e) => setTo(e.target.value)} />
           </div>
 
           <div className="home-row">
