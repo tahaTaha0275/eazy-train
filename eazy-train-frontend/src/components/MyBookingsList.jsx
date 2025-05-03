@@ -95,7 +95,7 @@ const MyBookingsList = () => {
               </div>
 
               <div className="travel-info">
-                <p>Trip ID: {booking.tripId}</p>
+                <p>Trip ID: {booking.tripId.split("/")[2]}</p>
                 <p>Seat: {booking.seatId}</p>
                 <p>Booked: {new Date(booking.bookedAt).toLocaleDateString()}</p>
               </div>
