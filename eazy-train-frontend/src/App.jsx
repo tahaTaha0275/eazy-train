@@ -18,7 +18,7 @@ import MyBookings from './pages/MyBookings';
 import AdminDashboard  from './components/AdminDashboard';
 import AdminAddTrip    from './components/AdminAddTrip';
 import DeleteTrip      from './components/DeleteTrip';
-import DeleteUsers     from './components/DeleteUsers';
+import EditTrip     from './components/EditTrip';
 import ManageOperators from './components/ManageOperators';
 import ViewReports     from './components/ViewReports';
 
@@ -70,9 +70,9 @@ function App() {
           <RoleProtectedRoute requiredRole = {"admin"}>
             <DeleteTrip />
           </RoleProtectedRoute>} />
-        <Route path="/AdminDashboard/delete-users" element={
+        <Route path="/AdminDashboard/edit-trips" element={
           <RoleProtectedRoute requiredRole = {"admin"}>
-            <DeleteUsers />
+            <EditTrip />
           </RoleProtectedRoute>} />
         <Route path="/AdminDashboard/manage-operators" element={
           <RoleProtectedRoute requiredRole = {"admin"}>

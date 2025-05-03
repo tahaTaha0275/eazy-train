@@ -5,16 +5,40 @@ import AdminDashboardHeader from './AdminDashboardHeader';
 import AdminDashboardFooter from './AdminDashboardFooter';
 import './styles/AdminAddTrip.css';
 
+
+
 const AdminAddTrip = () => {
-  const navigate = useNavigate();
+  const [operators, setOperators] = useState([]);
+
+  // Placeholder: you'll implement this later
+  const fetchOperators = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/operators');
+      const data = await response.json();
+      setOperators(data);
+    } catch (err) {
+      console.error('Failed to fetch operators:', err);
+    }
+  };
+  
+
+  React.useEffect(() => {
+  fetchOperators();
+  }, []);
+
   const [form, setForm] = useState({
     train: '',
     from: '',
     to: '',
-    date: '',
+    departureDateTime: '',
+    arrivalDateTime: '',
     ticketPrice: '',
-    tripNumber: ''
+    tripNumber: '',
+    operatorId: '' // <-- NEW
   });
+  
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -23,7 +47,7 @@ const AdminAddTrip = () => {
     console.log('Trip Created:', form);
     alert('Trip created successfully!');
   };
-
+  
   return (
     <div className="admin-page">
       <AdminDashboardHeader />
@@ -65,18 +89,33 @@ const AdminAddTrip = () => {
               <div className="form-group">
                 <label className="form-label">
                   <Calendar size={18} className="form-icon" />
-                  Date
+                  Departure Date
                 </label>
                 <input 
                   className="form-input" 
-                  type="date" 
-                  name="date" 
-                  value={form.date} 
+                  type="datetime-local" 
+                  name="departureDateTime" 
+                  value={form.departureDateTime} 
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">
+                  <Calendar size={18} className="form-icon" />
+                  Arrival Date
+                </label>
+                <input 
+                  className="form-input" 
+                  type="datetime-local" 
+                  name="arivalDateTime" 
+                  value={form.arrivalDateTime} 
                   onChange={handleChange}
                   required
                 />
               </div>
             </div>
+            
 
             <div className="form-row">
               <div className="form-group">
@@ -145,6 +184,25 @@ const AdminAddTrip = () => {
                 />
               </div>
             </div>
+            <div className="form-row">
+            <div className="form-group">
+  <label className="form-label">
+    👤 Operator
+  </label>
+  <select
+    className="form-input"
+    name="operatorId"
+    value={form.operatorId}
+    onChange={handleChange}
+    required
+  >
+    <option value="" disabled>Select an operator</option>
+    {operators.map(op => (
+      <option key={op.id} value={op.id}>{op.name}</option>
+    ))}
+  </select>
+</div>
+</div>
 
             <div className="form-actions">
               <button

@@ -59,14 +59,14 @@ const AdminDashboard = () => {
 
             <button 
               className="admin-action-button users"
-              onClick={() => navigate('/AdminDashboard/delete-users')}
+              onClick={() => navigate('/AdminDashboard/edit-trips')}
             >
               <div className="action-icon">
                 <UserX size={24} />
               </div>
               <div className="action-content">
-                <span className="action-title">Delete Users</span>
-                <span className="action-description">Manage user accounts</span>
+                <span className="action-title">Edit trips</span>
+                <span className="action-description">Edit trips</span>
               </div>
             </button>
 
