@@ -108,7 +108,7 @@ const AdminAddTrip = () => {
                 <input 
                   className="form-input" 
                   type="datetime-local" 
-                  name="arivalDateTime" 
+                  name="arrivalDateTime" 
                   value={form.arrivalDateTime} 
                   onChange={handleChange}
                   required
