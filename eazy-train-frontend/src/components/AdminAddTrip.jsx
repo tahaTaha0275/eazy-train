@@ -44,8 +44,22 @@ const AdminAddTrip = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Trip Created:', form);
-    alert('Trip created successfully!');
+    // post to backend localhost:8080/tripsa
+    console.log('Form submitted:', form);
+    fetch('http://localhost:8080/tripsa', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert('Trip created successfully!');
+          navigate('/AdminDashboard');
+        } else {
+          alert('Failed to create trip. Please try again.');
+        }
+      })
+      .catch((error) => console.error('Error:', error));
   };
   
   return (

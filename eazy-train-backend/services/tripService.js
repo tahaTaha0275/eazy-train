@@ -237,25 +237,25 @@ async function createTrip(tripData) {
     depTime,
     departureDate
   } = tripData;
+  console.log("Request body:", tripData);
+//   if (!name || !code || !status || !availableSeats || !totalSeats || !depStation || !arriveStation || !depTime || !departureDate) {
+//     throw new Error('Missing required fields.');
+//   }
 
-  if (!name || !code || !status || !availableSeats || !totalSeats || !depStation || !arriveStation || !depTime || !departureDate) {
-    throw new Error('Missing required fields.');
-  }
-
-  if (!VALID_STATUSES.includes(status)) {
-    throw new Error('Invalid trip status.');
-  }
+//   if (!VALID_STATUSES.includes(status)) {
+//     throw new Error('Invalid trip status.');
+//   }
 
   const data = {
-    name,
-    code,
-    availableSeats: Number(availableSeats),
-    totalSeats: Number(totalSeats),
-    status,
-    depStation,
-    arriveStation,
-    depTime,
-    departureDate: departureDate.trim().replace(/^'+|'+$/g, ""),
+    name: tripData.train,
+    code: Number(200),
+    availableSeats: Number(200),
+    totalSeats: Number(200),
+    status: "on_time",
+    depStation: tripData.from,
+    arriveStation: tripData.to,
+    depTime : tripData.departureDateTime.split("T")[1],
+    departureDate: tripData.departureDateTime.split("T")[0],
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp()
   };
